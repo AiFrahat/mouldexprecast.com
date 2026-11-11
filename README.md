@@ -2,7 +2,7 @@
 
 Single-page Coming Soon website for mouldexprecast.com.
 
-Open `index.html` directly, or run `python -m http.server 4173` and visit http://localhost:4173.
+Open `index.html` directly, or run `python -m http.server 4173` and visit AiFRAHAT.com.
 
 Deploy `index.html`, `style.css`, `favicon.svg`, and the `assets` folder to any static hosting service. No build step or dependencies required.
 
