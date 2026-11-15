@@ -32,3 +32,8 @@ footer a:hover{color:#ffd54f}
  .accent{height:4px;margin-bottom:24px}footer{gap:16px;font-size:13px}
 }
 @media(max-height:540px) and (min-width:701px){main{padding:35px 0}h1{font-size:80px}main p{font-size:27px;margin-top:14px}.brand svg{width:54px}.wordmark strong{font-size:24px}.wordmark>span{font-size:12px}}
+
+/* Original company logo on a contrasting light surface. */
+.brand{display:block;padding:10px 16px;background:rgba(255,255,255,.97);border-radius:4px;box-shadow:0 8px 30px #071b3020}
+.company-logo{display:block;width:clamp(160px,18vw,250px);height:auto;max-width:100%}
+@media(max-width:700px){.brand{padding:8px 12px}.company-logo{width:175px}main{padding-top:48px}}
