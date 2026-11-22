@@ -20,12 +20,22 @@ the content model (`site/src/data/*.json`) and the nine page templates.
 | 10 | **Brand**: supplied logo PNG is the only logo; header uses the trimmed lockup, footer/mobile menu/OG card use a derived reversed lockup; favicon is derived from the logo's red precast panel + white window on the brand navy tile | Brief: use the supplied logo and create a favicon from it | `site/public/brand`, `site/public/favicon*`, `docs/source-inventory.md § Logo and favicon` |
 | 11 | **Visual reference**: Heidelberg Materials' corporate web language (large calm photography, sharp geometry, thin rules, uppercase kickers, generous whitespace, dark editorial bands) applied to Mouldex's own palette sampled from the profile (royal blue `#004AAC`, signal yellow, concrete neutrals, dot-grid motif) | Brief: Heidelberg Materials visual reference | `docs/design-notes.md` |
 | 12 | **Contact form has no backend**: it composes a `mailto:` draft in the visitor's mail client and states that nothing is stored or sent by the site | Static build, no server to receive submissions, and no invented CRM endpoint | `site/src/components/ContactForm.astro` |
-| 13 | **No deployment, no publication**: the project only builds to `site/dist` and is served from `127.0.0.1` | Brief: do not deploy or publish; nothing was pushed or uploaded | `README.md` |
+| 13 | **Published to GitHub Pages** (branch `main`, repository root, custom domain `mouldexprecast.com`) after the client asked for publication; the site was built and fully tested locally first | Client instruction to publish; the earlier local-only rule was superseded | repository root + `README.md` |
 | 14 | **Localisation**: English is the source of truth, Arabic is a full translation stored in the same JSON records (`en`/`ar`), with an English per-field fallback in `localized()` so a partial translation can never break a page | Robustness + the brief's bilingual requirement | `site/src/lib/content.ts` |
 
-## Publication-rights items worth a client decision (not blocking local build)
+## Publication-rights items worth a client decision (the site is now published; confirm these)
 
 1. The reference list on profile pages 10–11 is branded **Precast Technology Solutions L.L.C - FZ**, while the profile is Mouldex's. The site presents it as the company profile's project reference list and states the provenance; the contracting-entity relationship is not explained in the source.
 2. The published contact email is a personal Outlook mailbox (`samy.mdxdxb@outlook.com`) and the profile also lists the General Manager's mobile. Both are reproduced from the profile's contact block (p. 25); confirm they are intended for public display.
 3. Project images on pages 12–14 are developer marketing renders carrying client branding (Emaar, Meraas/MEERAS, Dubai Hills Vista, Beachgate, Palmiera). Confirm permission to reuse them.
-4. Project statuses ("Completed / On-going / Awarded") come from an undated document; they should be confirmed before launch.
+4. Project statuses ("Completed / On-going / Awarded") come from an undated document; confirm they are still current.
+
+## Repository publication choices
+
+- The company PDF, extracted text and original logo PNG are **not committed** to the public repository
+  (internal employee records / signed documents); only the extraction and asset-pipeline scripts are.
+- Documentation committed with the repository was redacted of personal names, staff IDs, document
+  reference numbers, licence identifiers and addresses.
+- The privacy test's explicit internal-name list lives in a git-ignored local fixture, not in the repository.
+- The published header logo is a 709×480 rendition of the supplied lockup (162 KB instead of 1 MB); the
+  full-size master stays local.

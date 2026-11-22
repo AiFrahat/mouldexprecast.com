@@ -1,6 +1,6 @@
 # QA report — Mouldex bilingual website
 
-Date of run: 2026-11-22 · Local only (nothing deployed)
+Date of run: 2026-11-22 · **Published** to GitHub Pages (https://mouldexprecast.com/) after the test run; live verification results below
 
 ## Environment
 
@@ -66,6 +66,33 @@ other project. axe scans: **0 serious / 0 critical violations** on all 11 scanne
 - Language switch verified on all page types (path preserved), dropdown verified with keyboard, mobile dialog verified with Escape, filters verified against expected counts, contact form verified to compose a valid `mailto:` in both locales.
 - Arabic pages checked for direction (`dir="rtl"`), mirrored arrows, logical-property layout, Arabic font application, and absence of mixed-direction breakage in numbers/phones/project names.
 
+## Deployment (GitHub Pages)
+
+| Item | Value |
+| --- | --- |
+| Repository | https://github.com/AiFrahat/mouldexprecast.com |
+| Hosting | GitHub Pages, branch `main`, repository root, custom domain `https://mouldexprecast.com` (`CNAME`) |
+| `.nojekyll` | present, so the Astro `_astro/` directory is served as-is |
+| Commit published | `83d9ab1` — "Serve an optimised header logo" (initial site: `c3a757d`) |
+| Pages workflow | `pages build and deployment` — success for both commits |
+| Live routes | 34 (`/en/` + `/ar/` mirror), `/` → `/en/` redirect, bilingual 404 |
+
+### Live verification (`node scripts/verify-live.mjs https://mouldexprecast.com`)
+
+**PASSED — 34 routes verified on https://mouldexprecast.com.** For every route: HTTP 200, correct
+`lang`/`dir`, title + meta description, canonical + `hreflang` (`en`, `ar`, `x-default`), exactly one
+`<h1>`, Arabic headline on Arabic routes, every image decoded with alt text, no console errors.
+Also verified: `/` redirects to `/en/`, unknown route returns the 404 page, language switch keeps the
+current page.
+
+Follow-up found during live checking: the original 1 MB full-size logo lockup in the header
+intermittently failed with `ERR_CONNECTION_RESET`. It was replaced with a 709×480 rendition (162 KB)
+and re-verified (5/5 reliable home-page loads plus the full 34-route pass above).
+
+**Known hosting caveat:** the site is built for the custom-domain root. The GitHub project-preview URL
+`https://aifrahat.github.io/mouldexprecast.com/` serves the files but will not resolve the absolute
+`/images`, `/brand` and `/_astro` paths; use the custom domain.
+
 ## Known limitations / open items
 
 1. **Approved specification document absent.** The workspace contained only `source-materials/`; the v1.0 specification was reconstructed from the implementation brief. Scope decisions are recorded in `docs/implementation-decisions.md` so any difference in the approved document can be applied locally.
@@ -76,9 +103,19 @@ other project. axe scans: **0 serious / 0 critical violations** on all 11 scanne
 6. **Project statuses may be stale** — the profile is undated; "Completed / On-going / Awarded" reflects the document only.
 7. **No invented content:** no street address, registration/licence numbers, certifications, founding date, headcount or social accounts are published because the source does not contain them (or they sit on excluded internal pages).
 8. **Contact form has no backend** — it composes a `mailto:` draft and says so; nothing is stored or sent by the site.
-9. **Domain references** (`https://mouldexprecast.com`) are used for canonical/OG/sitemap only. Nothing was deployed, pushed or uploaded.
-10. **The parent repository still contains the previous "coming soon" page** (`D:\Projects\mouldexprecast.com\index.html`) — the new site lives in `MOULDEX-WEBSITE/site` and was not published over it.
+9. **Domain references** (`https://mouldexprecast.com`) are used for canonical, `hreflang`, Open Graph and sitemap URLs and are live on GitHub Pages.
+10. **The previous "coming soon" page was replaced** at the repository root by this build; the old `index.html`, `style.css`, `favicon.svg` and `assets/` are removed from the repository.
 11. Unused build by-products: `dubai-tower-*.jpg` (generated from the cover photo, not referenced) and the mid-size logo variants; harmless but removable.
+
+## Repository publication rules
+
+The company PDF, the extracted page text and the original logo PNG are **not committed** to the public
+repository because the PDF contains internal employee records and signed documents. The asset-pipeline
+scripts in `MOULDEX-WEBSITE/source-materials/` regenerate every published image from those local files.
+The privacy test reads its internal-name list from
+`MOULDEX-WEBSITE/site/tests/fixtures/internal-names.local.txt` (git-ignored). Documentation committed
+with the repository was redacted of personal names, staff IDs, document reference numbers, licence
+identifiers and addresses before publication.
 
 ## Reproduce
 
