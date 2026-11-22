@@ -62,7 +62,15 @@ def trim(image: Image.Image, threshold: int = 24, margin: int = 3) -> Image.Imag
 logo = trim(logo)
 W, H = logo.size
 print(f"logo trimmed to {W}x{H}")
-logo.save(os.path.join(BRAND, "mouldex-logo-full.png"), optimize=True)
+# The published lockup is used at ~80 px height in the header and as the
+# schema.org logo, so ship a 480 px-tall rendition instead of the full-size
+# 1447x980 master (1 MB): same artwork, ~5x smaller, reliably fast to load.
+header_h = 480
+header_w = round(W * header_h / H)
+logo.resize((header_w, header_h), Image.LANCZOS).save(
+    os.path.join(BRAND, "mouldex-logo-full.png"), optimize=True
+)
+logo.save(os.path.join(SRC, "mouldex-logo-master.png"), optimize=True)
 
 # Retina-width downscales of the lockup (never upscale below 1x).
 for target_h in (256, 160, 96, 72):
@@ -237,4 +245,6 @@ og.save(os.path.join(PUBLIC, "og-image.jpg"), quality=90, optimize=True, progres
 print("og image written")
 
 print("done")
+
+
 

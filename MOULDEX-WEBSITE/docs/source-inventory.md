@@ -270,7 +270,7 @@ The PDF's own logo bitmaps (cover, back cover, PTS divider) were **not** used. T
 **Derivation steps.**
 
 1. **Alpha normalisation.** The supplied PNG's alpha channel never reaches 255 (peak 254), so it was scaled by `255/peak`; solid artwork then renders at full opacity.
-2. **Trimmed lockup.** Alpha-threshold trim (>24, 3 px margin) → `mouldex-logo-full.png` **1447×980**. Retina downscales are height-driven, never upscaled: 256 → 378×256, 160 → 236×160, 96 → 142×96, 72 → 106×72.
+2. **Trimmed lockup.** Alpha-threshold trim (>24, 3 px margin) → master artwork **1447×980**. The published `mouldex-logo-full.png` is a 480 px-tall rendition of that master (**709×480**, ~162 KB instead of ~1 MB) because it renders at ~80 px in the header; the full-size master is kept locally as `mouldex-logo-master.png` (not published). Retina downscales are height-driven, never upscaled: 256 → 378×256, 160 → 236×160, 96 → 142×96, 72 → 106×72.
 3. **Mark crop.** The house/building symbol is the top band of the lockup. The split is the first horizontal alpha gap between 30 % and 75 % of the lockup height; the band is trimmed again (>24, 2 px) → `mouldex-mark.png` **657×554**. This is the favicon source.
 4. **Reversed lockup for dark backgrounds.** Navy strokes become white (`255`), the logo red is preserved, the concrete-grey "M"/"X" letters become light grey `(196,204,214)`, and near-white negative space is knocked out (alpha 0) → `mouldex-logo-reversed.png` **1447×980** plus height variants 256/160/96/72.
 5. **Favicon set.** At 16–32 px the mark's thin strokes vanish, so only the logo's own red precast panel and white window are kept (`favicon-mark.png`, 657×554) and placed on the brand navy `#06182F` tile with 16 % padding (48 px and below) or 13 % padding (larger). Outputs: `favicon-512.png`, `favicon-192.png`, `apple-touch-icon.png` (180), `favicon-48.png`, `favicon-32.png`, `favicon-16.png`, and `favicon.ico` packing 16/32/48. `site.webmanifest` references the 192 and 512 icons; `BaseLayout.astro` links the ICO, 32, 16, apple-touch and manifest.
@@ -281,9 +281,9 @@ The PDF's own logo bitmaps (cover, back cover, PTS divider) were **not** used. T
 
 | File | Pixels | Used by |
 | --- | --- | --- |
-| `brand/mouldex-logo-full.png` | 1447×980 | Header brand (`Header.astro`, also `Organization` JSON-LD logo) |
+| `brand/mouldex-logo-full.png` | 709×480 | Header brand (`Header.astro`, also `Organization` JSON-LD logo) |
 | `brand/mouldex-logo-256.png`, `-160`, `-96`, `-72` | 378/236/142/106 wide | Retina set; not referenced directly by a template |
-| `brand/mouldex-logo-reversed.png` | 1447×980 | Source for OG card and variants |
+| `brand/mouldex-logo-reversed.png` | 1447×980 | Source for OG card and variants (not referenced by a template) |
 | `brand/mouldex-logo-reversed-256.png`, `-160`, `-96`, `-72` | 378/236/142/106 wide | `-160` in footer, `-96` in mobile menu; others unused |
 | `brand/mouldex-mark.png` | 657×554 | Derivation source only |
 | `brand/favicon-mark.png` | 657×554 | Favicon derivation source |
@@ -309,3 +309,4 @@ The PDF's own logo bitmaps (cover, back cover, PTS divider) were **not** used. T
 | 12 | **Unexplained hidden images on page 11.** | Six small black stencil bitmaps (`page-11-img-02`–`07`) exist in the PDF object tree but do not render (likely hidden client-logo masks). They have no documented meaning and are unused. |
 | 13 | **Arabic copy needs native review.** | English is the source of truth; the Arabic in `site/src/data` is a full translation produced for this project. No bilingual/legal review by the company is evidenced in the workspace. |
 | 14 | **Website is a rebuild, not an official publication.** | The only company-controlled sources are the supplied PDF and logo PNG; any claim not traceable to a PDF page has been treated as editorial and flagged in `docs/content-map.md`. |
+
