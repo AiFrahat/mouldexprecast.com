@@ -1,0 +1,28 @@
+{
+  "name": "mouldex-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual (Arabic/English) corporate website for Mouldex Precast Contracting L.L.C, Dubai, UAE.",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 4321",
+    "start": "astro dev --host 127.0.0.1 --port 4321",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1 --port 4321",
+    "check": "astro check",
+    "content:check": "node scripts/verify-content.mjs",
+    "pretest": "npm run build",
+    "test": "playwright test",
+    "test:desktop": "playwright test --project=desktop",
+    "test:mobile": "playwright test --project=mobile",
+    "qa:screenshots": "node scripts/screenshots.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.6",
+    "astro": "^5.18.2"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1"
+  }
+}

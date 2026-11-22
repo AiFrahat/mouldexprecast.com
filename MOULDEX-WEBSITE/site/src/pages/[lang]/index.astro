@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Picture from '../../components/Picture.astro';
+import Button from '../../components/Button.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ValueCard from '../../components/ValueCard.astro';
+import Stat from '../../components/Stat.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { pages, site, services, projects, getValue, localized, getNav } from '../../lib/content';
+import { pick } from '../../lib/i18n';
+import type { Lang } from '../../lib/types';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'ar' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const copy = localized(pages.home, lang);
+const ui = site.ui;
+const nav = getNav(lang);
+const servicesHref = nav.find((item) => item.key === 'services')!.href;
+const projectsHref = nav.find((item) => item.key === 'projects')!.href;
+const aboutHref = nav.find((item) => item.key === 'about')!.href;
+const contactHref = nav.find((item) => item.key === 'contact')!.href;
+const featuredProjects = projects.showcase.slice(0, 3);
+const homeValues = (copy.why.valueIds as string[])
+  .map((id) => getValue(id))
+  .filter((value): value is NonNullable<typeof value> => Boolean(value));
+const exploreLabel = pick(ui.exploreService, lang);
+const onsiteImages = ['site-panels-01', 'site-structure-02', 'site-installation-03'];
+---
+<BaseLayout
+  lang={lang}
+  title={copy.metaTitle}
+  description={copy.metaDescription}
+  path=""
+  fullTitle
+>
+  <section class="hero">
+    <div class="hero__dots" aria-hidden="true"></div>
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">{copy.hero.kicker}</p>
+        <h1 class="display-1 hero__title">{copy.hero.title}</h1>
+        <p class="lead hero__lead">{copy.hero.lead}</p>
+        <div class="btn-row">
+          <Button href={servicesHref} variant="accent">{copy.hero.primaryCta}</Button>
+          <Button href={projectsHref} variant="ghost">{copy.hero.secondaryCta}</Button>
+        </div>
+      </div>
+      <div class="hero__media">
+        <Picture
+          name="bulgari-ocean-villas"
+          alt={copy.hero.imageCaption}
+          sizes="(min-width: 1200px) 600px, (min-width: 980px) 48vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <span class="hero__badge">{copy.hero.badge}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" aria-label={copy.intro.eyebrow}>
+    <div class="container">
+      <div class="grid grid--4">
+        {copy.stats.map((stat: { value: string; label: string }) => (
+          <Stat value={stat.value} label={stat.label} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top">
+    <div class="container split split--wide-start">
+      <SectionHead
+        eyebrow={copy.intro.eyebrow}
+        title={copy.intro.title}
+        linkHref={aboutHref}
+        linkLabel={copy.intro.linkLabel}
+        headingId="home-intro"
+      />
+      <div class="stack">
+        <div class="prose">
+          {copy.intro.body.map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+        <figure class="figure">
+          <div class="figure__frame">
+            <Picture
+              name="site-installation-03"
+              alt={copy.onsite.items[2].alt}
+              sizes="(min-width: 900px) 46vw, 100vw"
+            />
+          </div>
+          <figcaption class="figure__caption">{copy.onsite.items[2].caption}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="home-services">
+    <div class="container">
+      <div class="section-head-row">
+        <SectionHead
+          eyebrow={copy.services.eyebrow}
+          title={copy.services.title}
+          lead={copy.services.lead}
+          linkHref={servicesHref}
+          linkLabel={copy.services.linkLabel}
+          headingId="home-services"
+        />
+      </div>
+      <div class="grid grid--3">
+        {services.items.map((service) => (
+          <ServiceCard service={service} lang={lang} exploreLabel={exploreLabel} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="home-projects">
+    <div class="container">
+      <div class="section-head-row">
+        <SectionHead
+          eyebrow={copy.projects.eyebrow}
+          title={copy.projects.title}
+          lead={copy.projects.lead}
+          linkHref={projectsHref}
+          linkLabel={copy.projects.linkLabel}
+          headingId="home-projects"
+        />
+      </div>
+      <div class="grid grid--3">
+        {featuredProjects.map((project) => (
+          <ProjectCard project={project} lang={lang} viewLabel={pick(ui.viewProject, lang)} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy on-dark" aria-labelledby="home-why">
+    <div class="container">
+      <SectionHead
+        eyebrow={copy.why.eyebrow}
+        title={copy.why.title}
+        lead={copy.why.lead}
+        linkHref={aboutHref}
+        linkLabel={copy.why.linkLabel}
+        headingId="home-why"
+        class="section-head--wide mb-3"
+      />
+      <div class="grid grid--3">
+        {homeValues.map((value, index) => (
+          <ValueCard value={value} lang={lang} index={index} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="home-onsite">
+    <div class="container container--wide">
+      <div class="section-head mb-3">
+        <p class="eyebrow">{copy.onsite.eyebrow}</p>
+        <h2 class="h2" id="home-onsite">{copy.onsite.title}</h2>
+        <p class="lead">{copy.onsite.lead}</p>
+      </div>
+      <div class="media-strip">
+        {copy.onsite.items.map((item: { image: string; alt: string; caption: string }, index: number) => (
+          <figure class="media-strip__item figure">
+            <Picture
+              name={onsiteImages[index]}
+              alt={item.alt}
+              sizes="(min-width: 780px) 33vw, 100vw"
+            />
+            <figcaption class="figure__caption">{item.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow={copy.cta.eyebrow}
+    title={copy.cta.title}
+    text={copy.cta.text}
+    primary={{ label: copy.cta.primaryCta, href: contactHref }}
+    secondary={{ label: copy.cta.secondaryCta, href: contactHref }}
+  />
+</BaseLayout>

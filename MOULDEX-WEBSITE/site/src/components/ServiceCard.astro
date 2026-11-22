@@ -1,0 +1,46 @@
+---
+import Icons from './Icons.astro';
+import { serviceHref } from '../lib/content';
+import { localized } from '../lib/content';
+import type { Lang, ServiceItem } from '../lib/types';
+
+interface Props {
+  service: ServiceItem;
+  lang: Lang;
+  exploreLabel: string;
+  icon?: string;
+}
+
+const { service, lang, exploreLabel, icon = 'layers' } = Astro.props;
+const copy = localized(service, lang);
+const title = copy.title;
+const summary = copy.summary;
+const icons: Record<string, string> = {
+  'precast-claddings': 'layers',
+  'load-bearing-structures': 'frame',
+  villas: 'house',
+  'hollow-core-slabs': 'slab',
+  'precast-boundary-walls': 'wall',
+  'precast-joints-sealant-works': 'sealant',
+};
+---
+<article class="service-card">
+  <div class="service-card__top">
+    <span class="service-card__num">{service.number}</span>
+    <Icons name={icons[service.slug] ?? icon} class="service-card__icon" />
+  </div>
+  <h3 class="service-card__title">
+    <a href={serviceHref(lang, service.slug)}>{title}</a>
+  </h3>
+  <p class="service-card__text">{summary}</p>
+  <div class="service-card__foot">
+    <a class="link-arrow" href={serviceHref(lang, service.slug)}>
+      {exploreLabel}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 12h15" />
+        <path d="M13 6l6 6-6 6" />
+      </svg>
+    </a>
+  </div>
+</article>
+

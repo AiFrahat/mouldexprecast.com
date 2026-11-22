@@ -1,0 +1,204 @@
+[
+ {
+  "name": "bulgari-ocean-villas",
+  "source": "page-13-img-01-984a86619e12f338.jpeg",
+  "sourceSize": [
+   1152,
+   648
+  ],
+  "variants": [
+   {
+    "file": "/images/bulgari-ocean-villas-1152.jpg",
+    "width": 1152,
+    "height": 648,
+    "bytes": 140682
+   },
+   {
+    "file": "/images/bulgari-ocean-villas-800.jpg",
+    "width": 800,
+    "height": 450,
+    "bytes": 69678
+   },
+   {
+    "file": "/images/bulgari-ocean-villas-480.jpg",
+    "width": 480,
+    "height": 270,
+    "bytes": 26011
+   }
+  ]
+ },
+ {
+  "name": "lamborghini-villas",
+  "source": "page-12-img-01-c2c26199a65b15b1.jpeg",
+  "sourceSize": [
+   937,
+   544
+  ],
+  "variants": [
+   {
+    "file": "/images/lamborghini-villas-937.jpg",
+    "width": 937,
+    "height": 544,
+    "bytes": 104181
+   },
+   {
+    "file": "/images/lamborghini-villas-800.jpg",
+    "width": 800,
+    "height": 464,
+    "bytes": 81099
+   },
+   {
+    "file": "/images/lamborghini-villas-480.jpg",
+    "width": 480,
+    "height": 279,
+    "bytes": 36196
+   }
+  ]
+ },
+ {
+  "name": "madinat-jumeirah-living",
+  "source": "page-12-img-02-a39c76a4961e31b2.jpeg",
+  "sourceSize": [
+   532,
+   299
+  ],
+  "variants": [
+   {
+    "file": "/images/madinat-jumeirah-living-532.jpg",
+    "width": 532,
+    "height": 299,
+    "bytes": 37081
+   },
+   {
+    "file": "/images/madinat-jumeirah-living-480.jpg",
+    "width": 480,
+    "height": 270,
+    "bytes": 38151
+   }
+  ]
+ },
+ {
+  "name": "al-kharafi",
+  "source": "page-13-img-02-351a0989a4878a34.jpeg",
+  "sourceSize": [
+   474,
+   261
+  ],
+  "variants": [
+   {
+    "file": "/images/al-kharafi-474.jpg",
+    "width": 474,
+    "height": 261,
+    "bytes": 26802
+   }
+  ]
+ },
+ {
+  "name": "beachgate-address",
+  "source": "page-14-img-01-f4a737465ccb73b1.jpeg",
+  "sourceSize": [
+   474,
+   331
+  ],
+  "variants": [
+   {
+    "file": "/images/beachgate-address-474.jpg",
+    "width": 474,
+    "height": 331,
+    "bytes": 25325
+   }
+  ]
+ },
+ {
+  "name": "palmiera-oasis",
+  "source": "page-14-img-02-917405f5d42e4aba.jpeg",
+  "sourceSize": [
+   474,
+   266
+  ],
+  "variants": [
+   {
+    "file": "/images/palmiera-oasis-474.jpg",
+    "width": 474,
+    "height": 266,
+    "bytes": 26600
+   }
+  ]
+ },
+ {
+  "name": "site-panels-01",
+  "source": "page-07-img-01-b11b7a58b4eb525d.jpeg",
+  "sourceSize": [
+   474,
+   240
+  ],
+  "variants": [
+   {
+    "file": "/images/site-panels-01-474.jpg",
+    "width": 474,
+    "height": 240,
+    "bytes": 20977
+   }
+  ]
+ },
+ {
+  "name": "site-structure-02",
+  "source": "page-07-img-02-8086edef9be0ab3f.jpeg",
+  "sourceSize": [
+   403,
+   315
+  ],
+  "variants": [
+   {
+    "file": "/images/site-structure-02-403.jpg",
+    "width": 403,
+    "height": 315,
+    "bytes": 30038
+   }
+  ]
+ },
+ {
+  "name": "site-installation-03",
+  "source": "page-07-img-03-7c8e1e3493807cab.jpeg",
+  "sourceSize": [
+   640,
+   360
+  ],
+  "variants": [
+   {
+    "file": "/images/site-installation-03-640.jpg",
+    "width": 640,
+    "height": 360,
+    "bytes": 49742
+   }
+  ]
+ },
+ {
+  "name": "dubai-tower",
+  "source": "page-01-img-01-b1b9e17717189d71.jpeg",
+  "sourceSize": [
+   1081,
+   1133
+  ],
+  "variants": [
+   {
+    "file": "/images/dubai-tower-1081.jpg",
+    "width": 1081,
+    "height": 1133,
+    "bytes": 191353
+   },
+   {
+    "file": "/images/dubai-tower-800.jpg",
+    "width": 800,
+    "height": 838,
+    "bytes": 129433
+   },
+   {
+    "file": "/images/dubai-tower-480.jpg",
+    "width": 480,
+    "height": 503,
+    "bytes": 49597
+   }
+  ]
+ }
+]

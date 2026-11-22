@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import { site } from '../lib/content';
+import { pick } from '../lib/i18n';
+---
+<BaseLayout
+  lang="en"
+  title={pick(site.ui.notFoundTitle, 'en')}
+  description={pick(site.ui.notFoundText, 'en')}
+  path=""
+  noindex
+>
+  <section class="not-found">
+    <div class="container not-found__inner">
+      <p class="display-1" aria-hidden="true">404</p>
+      <h1 class="h2">{pick(site.ui.notFoundTitle, 'en')}</h1>
+      <p class="lead">{pick(site.ui.notFoundText, 'en')}</p>
+      <p class="lead" lang="ar" dir="rtl">{pick(site.ui.notFoundTitle, 'ar')}</p>
+      <p class="lead" lang="ar" dir="rtl">{pick(site.ui.notFoundText, 'ar')}</p>
+      <div class="btn-row">
+        <Button href="/en/">{pick(site.ui.backHome, 'en')}</Button>
+        <Button href="/ar/" variant="ghost">{pick(site.ui.backHome, 'ar')}</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

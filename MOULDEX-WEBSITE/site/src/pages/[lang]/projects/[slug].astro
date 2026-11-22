@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import Picture from '../../../components/Picture.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import { pages, projects, site, services, localized, statusLabels, getNav, serviceHref, showcaseImageName } from '../../../lib/content';
+import { pick } from '../../../lib/i18n';
+import type { Lang } from '../../../lib/types';
+
+export function getStaticPaths() {
+  return projects.showcase.flatMap((project) =>
+    (['en', 'ar'] as const).map((lang) => ({
+      params: { lang, slug: project.slug },
+    })),
+  );
+}
+
+const { lang, slug } = Astro.params as { lang: Lang; slug: string };
+const project = projects.showcase.find((item) => item.slug === slug);
+if (!project) throw new Error(`Unknown project "${slug}"`);
+
+const copy = localized(project, lang);
+const ui = site.ui;
+const nav = getNav(lang);
+const contactHref = nav.find((item) => item.key === 'contact')!.href;
+const projectsHref = nav.find((item) => item.key === 'projects')!.href;
+const service = services.items.find((item) => item.slug === project.service);
+const reference = project.refId
+  ? projects.reference.find((item) => item.id === project.refId)
+  : undefined;
+const statuses = statusLabels(lang);
+const facts = project.facts;
+const factRows = [
+  facts.client ? { label: pick(ui.client, lang), value: facts.client } : null,
+  facts.consultant ? { label: pick(ui.consultant, lang), value: facts.consultant } : null,
+  facts.contractor ? { label: pick(ui.contractor, lang), value: facts.contractor } : null,
+  facts.status ? { label: pick(ui.status, lang), value: statuses[facts.status] } : null,
+  { label: pick(ui.location, lang), value: pick(facts.location, lang) },
+].filter((row): row is { label: string; value: string } => row !== null);
+const moreProjects = projects.showcase.filter((item) => item.slug !== project.slug).slice(0, 3);
+const homeCopy = localized(pages.home, lang);
+---
+<BaseLayout
+  lang={lang}
+  title={copy.metaTitle}
+  description={copy.metaDescription}
+  path={`projects/${project.slug}`}
+>
+  <PageHero
+    lang={lang}
+    eyebrow={copy.category}
+    title={copy.title}
+    lead={copy.summary}
+    breadcrumbs={[
+      { label: pick(site.nav.projects, lang), href: projectsHref },
+      { label: copy.title },
+    ]}
+  />
+
+  <section class="section" aria-labelledby="project-detail">
+    <div class="container service-layout">
+      <div class="stack">
+        <figure class="figure">
+          <div class="figure__frame">
+            <Picture
+              name={showcaseImageName(project)}
+              alt={pick(project.imageAlt, lang)}
+              sizes="(min-width: 980px) 62vw, 100vw"
+              loading="eager"
+            />
+          </div>
+        </figure>
+
+        <div class="prose" id="project-detail">
+          {copy.body.map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+
+        {
+          copy.scope.length > 0 && (
+            <div class="aside-card">
+              <h2 class="aside-card__title">{pick(ui.scopeOfWorks, lang)}</h2>
+              <ul class="check-list">
+                {copy.scope.map((item: string) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+
+        {
+          service && (
+            <div class="stack stack--sm">
+              <h2 class="h3">{pick(ui.relatedServices, lang)}</h2>
+              <a class="related-service" href={serviceHref(lang, service.slug)}>
+                <span class="related-service__num">{service.number}</span>
+                <span class="related-service__title">{localized(service, lang).title}</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 12h15" />
+                  <path d="M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          )
+        }
+      </div>
+
+      <aside class="service-aside stack">
+        <div class="aside-card">
+          <h2 class="aside-card__title">{pick(ui.projectFacts, lang)}</h2>
+          <dl class="facts">
+            {factRows.map((row) => (
+              <div class="fact-row">
+                <dt>{row.label}</dt>
+                <dd>{row.value}</dd>
+              </div>
+            ))}
+          </dl>
+
+        </div>
+        <a class="link-arrow" href={projectsHref}>
+          {pick(ui.backToProjects, lang)}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12h15" />
+            <path d="M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="more-projects">
+    <div class="container">
+      <div class="section-head-row">
+        <h2 class="h2" id="more-projects">{pick(ui.relatedProjects, lang)}</h2>
+        <a class="link-arrow" href={projectsHref}>{pick(ui.viewAllProjects, lang)}</a>
+      </div>
+      <div class="grid grid--3">
+        {moreProjects.map((item) => (
+          <ProjectCard project={item} lang={lang} viewLabel={pick(ui.viewProject, lang)} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow={homeCopy.cta.eyebrow}
+    title={homeCopy.cta.title}
+    text={homeCopy.cta.text}
+    primary={{ label: homeCopy.cta.primaryCta, href: contactHref }}
+    secondary={{ label: homeCopy.cta.secondaryCta, href: contactHref }}
+  />
+</BaseLayout>
+
+<style>
+  .related-service {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: clamp(1.1rem, 2vw, 1.4rem);
+    border: 1px solid var(--line);
+    background: var(--concrete);
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+
+  .related-service:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .related-service__num {
+    font-family: var(--font-latin);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--blue);
+  }
+
+  .related-service:hover .related-service__num {
+    color: var(--yellow);
+  }
+
+  .related-service__title {
+    font-weight: 700;
+    flex: 1;
+  }
+
+  .related-service svg {
+    inline-size: 18px;
+    block-size: 18px;
+  }
+
+  [dir='rtl'] .related-service svg {
+    transform: scaleX(-1);
+  }
+
+  .aside-note {
+    font-size: 0.82rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+</style>
+
+

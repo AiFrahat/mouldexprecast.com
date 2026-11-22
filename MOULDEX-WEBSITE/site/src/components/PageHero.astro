@@ -1,0 +1,29 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { Lang } from '../lib/types';
+
+interface Crumbs {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  lang: Lang;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  breadcrumbs?: Crumbs[];
+  id?: string;
+}
+const { lang, eyebrow, title, lead, breadcrumbs = [], id = 'page-title' } = Astro.props;
+---
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      {breadcrumbs.length > 0 && <Breadcrumbs lang={lang} items={breadcrumbs} />}
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 class="display-2 page-hero__title" id={id}>{title}</h1>
+      {lead && <p class="lead">{lead}</p>}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,122 @@
+---
+import { site, getNav, services, serviceHref, localized } from '../lib/content';
+import { pick, localizedPath, otherLang, langLabel } from '../lib/i18n';
+import type { Lang } from '../lib/types';
+import Icons from './Icons.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const ui = site.ui;
+const contact = site.contact;
+const nav = getNav(lang);
+const targetLang = otherLang(lang);
+const otherHref = localizedPath(targetLang);
+const year = new Date().getFullYear();
+const contactNav = nav.find((item) => item.key === 'contact')!;
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img
+          src="/brand/mouldex-logo-reversed-160.png"
+          width="236"
+          height="160"
+          alt={pick(site.brand.name, lang)}
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="footer__blurb">{pick(site.brand.shortDescription, lang)}</p>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">{pick(ui.footerExplore, lang)}</h2>
+        <ul class="footer__links">
+          {
+            nav.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">{pick(ui.footerServices, lang)}</h2>
+        <ul class="footer__links">
+          {
+            services.items.map((item) => (
+              <li>
+                <a href={serviceHref(lang, item.slug)}>{localized(item, lang).title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">{pick(ui.footerContact, lang)}</h2>
+        <div class="footer__contact">
+          <a href={`tel:${contact.phoneHref}`}>
+            <Icons name="phone" />
+            <span class="ltr">{contact.phoneIntl}</span>
+          </a>
+          <a href={`tel:${contact.mobileHref}`}>
+            <Icons name="phone" />
+            <span class="ltr">{contact.mobileIntl}</span>
+          </a>
+          <a href={`mailto:${contact.email}`}>
+            <Icons name="mail" />
+            <span class="ltr">{contact.email}</span>
+          </a>
+          <p class="footer__contact-row">
+            <Icons name="fax" />
+            <span class="ltr">{contact.faxIntl}</span>
+          </p>
+          <p class="footer__contact-row">
+            <Icons name="pin" />
+            <span>{pick(contact.addressLine, lang)}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        <span class="ltr">© {year} {pick(ui.copyrightName, lang)}</span>
+        <span>{pick(ui.copyrightRights, lang)}</span>
+      </p>
+      <div class="footer__legal">
+        <a href={contactNav.href}>{pick(ui.contactUs, lang)}</a>
+        <a href={localizedPath(targetLang)} hreflang={targetLang} lang={targetLang}>
+          {langLabel(targetLang)}
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer__contact-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .footer__contact-row :global(svg) {
+    inline-size: 15px;
+    block-size: 15px;
+    color: var(--yellow);
+    flex: none;
+  }
+
+  .footer__legal {
+    align-items: center;
+  }
+</style>
+
+
+

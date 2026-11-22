@@ -1,0 +1,408 @@
+{
+  "page": {
+    "eyebrow": {
+      "en": "What we do",
+      "ar": "ما نقوم به"
+    },
+    "title": {
+      "en": "Six precast service lines",
+      "ar": "ستة خطوط خدمات في الخرسانة سابقة الصب"
+    },
+    "lead": {
+      "en": "From facade cladding to hollow core slabs, Mouldex delivers precast contracting packages for commercial, civil and residential projects across Dubai and the GCC.",
+      "ar": "من تكسية الواجهات إلى البلاطات المجوفة (الهولو كور)، تقدم MOULDEX حزم مقاولات الخرسانة سابقة الصب للمشاريع التجارية والمدنية والسكنية في دبي ودول مجلس التعاون الخليجي."
+    },
+    "intro": {
+      "en": "Every service below is part of the company's published precast scope. Project references are drawn from the project list in the Mouldex company profile.",
+      "ar": "كل خدمة أدناه جزء من نطاق أعمال الخرسانة سابقة الصب المنشور للشركة، ومراجع المشاريع مستمدة من قائمة المشاريع في الملف التعريفي لشركة MOULDEX."
+    },
+    "referenceTitle": {
+      "en": "Where it is applied",
+      "ar": "مواضع التطبيق"
+    },
+    "capabilitiesTitle": {
+      "en": "What this covers",
+      "ar": "ما تشمله هذه الخدمة"
+    },
+    "metaTitle": {
+      "en": "Precast services",
+      "ar": "خدمات الخرسانة سابقة الصب"
+    },
+    "metaDescription": {
+      "en": "Precast claddings, load-bearing structures, villas, hollow core slabs, precast boundary walls and joints sealant works delivered by Mouldex Precast Contracting L.L.C in Dubai, UAE.",
+      "ar": "تكسيات سابقة الصب وهياكل حاملة للأحمال وفلل وبلاطات مجوفة وأسوار وأعمال إحكام فواصل، تنفذها MOULDEX PRECAST CONTRACTING L.L.C في دبي، الإمارات العربية المتحدة."
+    }
+  },
+  "items": [
+    {
+      "slug": "precast-claddings",
+      "number": "01",
+      "image": "/images/madinat-jumeirah-living-532.jpg",
+      "imageAlt": {
+        "en": "Madinat Jumeirah Living residential development with the Burj Al Arab in the background",
+        "ar": "مشروع Madinat Jumeirah Living السكني مع برج Burj Al Arab في الخلفية"
+      },
+      "sourcePages": [
+        6,
+        11
+      ],
+      "relatedProjects": [
+        "ref-01",
+        "ref-04",
+        "ref-08",
+        "ref-13",
+        "ref-16"
+      ],
+      "en": {
+        "eyebrow": "Facades and envelopes",
+        "title": "Precast Claddings",
+        "summary": "Factory-cast concrete cladding for high-rise towers and commercial structures, installed as a complete facade package.",
+        "body": [
+          "Precast cladding panels are factory-cast concrete elements that form the outer envelope of a building. Casting off site lets the facade be produced and finished under controlled conditions while the structure rises on site, and the panels are then erected and aligned by the precast contractor.",
+          "Mouldex has delivered precast cladding across the Madinat Jumeirah Living phases 3b, 4, 6b and 7, and precast cladding panels for the Sheikh Zayed National Museum Water Body Facility."
+        ],
+        "capabilities": [
+          "High-rise towers",
+          "Commercial structures",
+          "Facade panel installation",
+          "Erection and alignment"
+        ],
+        "applications": [
+          "Residential towers and communities",
+          "Commercial buildings",
+          "Cultural and civic facilities"
+        ],
+        "metaTitle": "Precast cladding contractor in Dubai",
+        "metaDescription": "Precast cladding panels for high-rise towers and commercial buildings, delivered by Mouldex Precast Contracting L.L.C in Dubai, UAE."
+      },
+      "ar": {
+        "eyebrow": "الواجهات والغلاف الخارجي",
+        "title": "التكسيات سابقة الصب",
+        "summary": "تكسيات خرسانية مصبوبة في المصنع للأبراج الشاهقة والمنشآت التجارية، يجري تركيبها كحزمة واجهات متكاملة.",
+        "body": [
+          "ألواح التكسية سابقة الصب عناصر خرسانية تصب في المصنع وتشكل الغلاف الخارجي للمبنى. ويتيح الصب خارج الموقع إنتاج الواجهة وتشطيبها في ظروف محكومة أثناء بناء الهيكل في الموقع، ثم يتولى مقاول الخرسانة سابقة الصب تركيب الألواح ومحاذاتها.",
+          "نفذت MOULDEX أعمال تكسية سابقة الصب في مراحل Madinat Jumeirah Living 3b و4 و6b و7، إلى جانب ألواح تكسية سابقة الصب لمشروع Sheikh Zayed National Museum Water Body Facility."
+        ],
+        "capabilities": [
+          "الأبراج الشاهقة",
+          "المنشآت التجارية",
+          "تركيب ألواح الواجهات",
+          "التركيب والمحاذاة"
+        ],
+        "applications": [
+          "الأبراج والمجتمعات السكنية",
+          "المباني التجارية",
+          "المنشآت الثقافية والمدنية"
+        ],
+        "metaTitle": "مقاول تكسيات سابقة الصب في دبي",
+        "metaDescription": "ألواح تكسية سابقة الصب للأبراج الشاهقة والمباني التجارية، تنفذها MOULDEX PRECAST CONTRACTING L.L.C في دبي، الإمارات العربية المتحدة."
+      }
+    },
+    {
+      "slug": "load-bearing-structures",
+      "number": "02",
+      "image": "/images/beachgate-address-474.jpg",
+      "imageAlt": {
+        "en": "Beachgate by Address residential towers in Dubai",
+        "ar": "أبراج Beachgate by Address السكنية في دبي"
+      },
+      "sourcePages": [
+        6,
+        11
+      ],
+      "relatedProjects": [
+        "ref-06",
+        "ref-07",
+        "ref-11",
+        "ref-12",
+        "ref-15"
+      ],
+      "en": {
+        "eyebrow": "Structural precast",
+        "title": "Load-Bearing Structures",
+        "summary": "Precision precast elements that carry load, built and erected to the structural engineer's specification.",
+        "body": [
+          "Load-bearing precast elements transfer the loads of the building through the structure. Because they are cast and cured in a controlled environment, they can be produced to tight dimensional tolerances before they reach site.",
+          "Our reference works include precast staircases and wind-tower elements for Madinat Jumeirah Living: Phase 4, precast staircases for Beachgate by Address, and staircase packages for the Emaar Beachfront plots and the Hamdan Bin Rashid Cancer Hospital."
+        ],
+        "capabilities": [
+          "Precast staircases",
+          "Wind tower elements",
+          "Structural precast components",
+          "Erection and alignment"
+        ],
+        "applications": [
+          "Residential and hospitality towers",
+          "Healthcare facilities",
+          "Beachfront developments"
+        ],
+        "metaTitle": "Precast load-bearing structures",
+        "metaDescription": "Precast load-bearing structures, staircases and wind tower elements delivered by Mouldex Precast Contracting L.L.C in Dubai, UAE."
+      },
+      "ar": {
+        "eyebrow": "الخرسانة سابقة الصب الإنشائية",
+        "title": "الهياكل الحاملة للأحمال",
+        "summary": "عناصر سابقة الصب عالية الدقة تحمل الأحمال، مصنوعة ومركبة وفق مواصفات المهندس الإنشائي.",
+        "body": [
+          "تنقل العناصر سابقة الصب الحاملة للأحمال أحمال المبنى عبر الهيكل. ولأن الصب والمعالجة يتمان في بيئة محكومة، يمكن إنتاجها بأبعاد بالغة الدقة قبل وصولها إلى الموقع.",
+          "تشمل أعمالنا المرجعية سلالم سابقة الصب وعناصر أبراج الهواء لمشروع Madinat Jumeirah Living: المرحلة 4، وسلالم سابقة الصب لمشروع Beachgate by Address، وحزم سلالم لقطع الأراضي في Emaar Beachfront ومشروع Hamdan Bin Rashid Cancer Hospital."
+        ],
+        "capabilities": [
+          "السلالم سابقة الصب",
+          "عناصر أبراج الهواء",
+          "المكونات الإنشائية سابقة الصب",
+          "التركيب والمحاذاة"
+        ],
+        "applications": [
+          "الأبراج السكنية والفندقية",
+          "المرافق الصحية",
+          "مشاريع الواجهة البحرية"
+        ],
+        "metaTitle": "هياكل حاملة للأحمال سابقة الصب",
+        "metaDescription": "هياكل حاملة للأحمال وسلالم وعناصر أبراج هواء سابقة الصب، تنفذها MOULDEX PRECAST CONTRACTING L.L.C في دبي، الإمارات العربية المتحدة."
+      }
+    },
+    {
+      "slug": "villas",
+      "number": "03",
+      "image": "/images/lamborghini-villas-937.jpg",
+      "imageAlt": {
+        "en": "Villa facade at the Dubai Hills Vista development inspired by Automobili Lamborghini",
+        "ar": "واجهة فيلا في مشروع Dubai Hills Vista المستوحاة من Automobili Lamborghini"
+      },
+      "sourcePages": [
+        6,
+        11,
+        12
+      ],
+      "relatedProjects": [
+        "ref-02",
+        "ref-05",
+        "ref-10"
+      ],
+      "en": {
+        "eyebrow": "Residential precast",
+        "title": "Villas",
+        "summary": "Elegant, durable precast structures for villa projects and residential communities.",
+        "body": [
+          "Precast concrete gives villa developments a consistent architectural finish and a construction programme that runs independently of the structural frame. Elements are cast to the project's design, then delivered and installed on site.",
+          "Mouldex reference works include precast triangle elements for Bulgari Ocean Villas and GRC panels for the Lamborghini Villas project, alongside precast boundary walls for Elysian Mansions at Tilal Al Ghaf."
+        ],
+        "capabilities": [
+          "Villa facade panels",
+          "Feature and triangle elements",
+          "GRC panel installation",
+          "Residential community works"
+        ],
+        "applications": [
+          "Villa communities",
+          "Waterfront villas",
+          "Gated residential developments"
+        ],
+        "metaTitle": "Precast villas and residential precast",
+        "metaDescription": "Precast villa structures, facade panels and feature elements by Mouldex Precast Contracting L.L.C, Dubai, UAE."
+      },
+      "ar": {
+        "eyebrow": "الخرسانة سابقة الصب السكنية",
+        "title": "الفلل",
+        "summary": "هياكل سابقة الصب أنيقة ومتينة لمشاريع الفلل والمجتمعات السكنية.",
+        "body": [
+          "تمنح الخرسانة سابقة الصب مشاريع الفلل تشطيباً معمارياً متسقاً وبرنامج إنشاء يسير بشكل مستقل عن الهيكل الإنشائي. ويتم صب العناصر حسب تصميم المشروع، ثم تسليمها وتركيبها في الموقع.",
+          "تشمل أعمال MOULDEX المرجعية عناصر مثلثة سابقة الصب لمشروع Bulgari Ocean Villas وألواح GRC لمشروع Lamborghini Villas، إلى جانب أسوار خرسانية سابقة الصب لمشروع Elysian Mansions في Tilal Al Ghaf."
+        ],
+        "capabilities": [
+          "ألواح واجهات الفلل",
+          "العناصر المميزة والمثلثة",
+          "تركيب ألواح GRC",
+          "أعمال المجتمعات السكنية"
+        ],
+        "applications": [
+          "مجتمعات الفلل",
+          "فلل الواجهة البحرية",
+          "المجمعات السكنية المسورة"
+        ],
+        "metaTitle": "فلل سابقة الصب وخرسانة سكنية",
+        "metaDescription": "هياكل فلل وألواح واجهات وعناصر مميزة سابقة الصب، تنفذها MOULDEX PRECAST CONTRACTING L.L.C في دبي، الإمارات العربية المتحدة."
+      }
+    },
+    {
+      "slug": "hollow-core-slabs",
+      "number": "04",
+      "image": "/images/site-installation-03-640.jpg",
+      "imageAlt": {
+        "en": "Crew placing precast concrete units on a construction site in the UAE",
+        "ar": "فريق عمل يضع وحدات خرسانية سابقة الصب في موقع إنشاءات في الإمارات"
+      },
+      "sourcePages": [
+        6,
+        11
+      ],
+      "relatedProjects": [
+        "ref-17"
+      ],
+      "en": {
+        "eyebrow": "Floors and roofs",
+        "title": "Hollow Core Slabs",
+        "summary": "Advanced hollow core slab technology for efficient floors and roofs.",
+        "body": [
+          "Hollow core slabs are precast concrete floor and roof elements with longitudinal voids that reduce weight while keeping strength. They are installed quickly and give the structure a fast working platform for the trades that follow.",
+          "The company's awarded reference works include hollow core slabs for Al Lusaily Development Phase 01 at Me'aisem Second in Dubai."
+        ],
+        "capabilities": [
+          "Hollow core slabs",
+          "Long-span floors",
+          "Rapid installation"
+        ],
+        "applications": [
+          "Residential buildings",
+          "Commercial developments",
+          "Large floor plates"
+        ],
+        "metaTitle": "Hollow core slabs in Dubai",
+        "metaDescription": "Hollow core slab supply and installation for efficient floors, by Mouldex Precast Contracting L.L.C, Dubai, UAE."
+      },
+      "ar": {
+        "eyebrow": "الأرضيات والأسقف",
+        "title": "البلاطات المجوفة (الهولو كور)",
+        "summary": "تقنية متقدمة للبلاطات المجوفة (الهولو كور) لأرضيات وأسقف عالية الكفاءة.",
+        "body": [
+          "البلاطات المجوفة (الهولو كور) عناصر أرضيات وأسقف من الخرسانة سابقة الصب تحتوي على فراغات طولية تخفف الوزن مع الحفاظ على المقاومة. ويتم تركيبها بسرعة، ما يوفر للهيكل منصة عمل سريعة للأعمال اللاحقة.",
+          "تشمل أعمال الشركة المرجعية المُرساة بلاطات مجوفة (هولو كور) لمشروع Al Lusaily Development المرحلة 01 في Me'aisem Second بدبي."
+        ],
+        "capabilities": [
+          "البلاطات المجوفة (الهولو كور)",
+          "الأرضيات ذات البحر الطويل",
+          "التركيب السريع"
+        ],
+        "applications": [
+          "المباني السكنية",
+          "المشاريع التجارية",
+          "البلاطات الأرضية الواسعة"
+        ],
+        "metaTitle": "البلاطات المجوفة (الهولو كور) في دبي",
+        "metaDescription": "توريد وتركيب البلاطات المجوفة (الهولو كور) لأرضيات عالية الكفاءة، تنفذها MOULDEX PRECAST CONTRACTING L.L.C في دبي، الإمارات العربية المتحدة."
+      }
+    },
+    {
+      "slug": "precast-boundary-walls",
+      "number": "05",
+      "image": "/images/palmiera-oasis-474.jpg",
+      "imageAlt": {
+        "en": "Palmiera at The Oasis villa by Emaar with boundary treatment",
+        "ar": "فيلا في Palmiera ضمن The Oasis من EMAAR مع معالجة السور المحيط"
+      },
+      "sourcePages": [
+        6,
+        11,
+        13,
+        14
+      ],
+      "relatedProjects": [
+        "ref-05",
+        "ref-10",
+        "ref-14"
+      ],
+      "en": {
+        "eyebrow": "Boundaries and privacy",
+        "title": "Precast Boundary Walls",
+        "summary": "Secure, durable boundary walls that give developments a consistent architectural edge.",
+        "body": [
+          "Precast boundary walls combine security and aesthetics: panels are cast to a repeatable finish, then installed along the perimeter of a development. The result is a consistent wall line that is quick to build and easy to maintain.",
+          "Reference works include boundary walls for Elysian Mansions at Tilal Al Ghaf, phases 1A, 1D and 1E at The Oasis, The Oasis Phase 1B Mirage Main Works, and precast boundary walls at the Al Kharafi and Palmiera Oasis projects."
+        ],
+        "capabilities": [
+          "Boundary wall panels",
+          "Community perimeter works",
+          "Privacy and security walls",
+          "Consistent architectural finish"
+        ],
+        "applications": [
+          "Villa communities",
+          "Master-planned developments",
+          "Landscape and public realm"
+        ],
+        "metaTitle": "Precast boundary walls in Dubai",
+        "metaDescription": "Precast boundary wall installation for villa communities and master developments by Mouldex Precast Contracting L.L.C, Dubai, UAE."
+      },
+      "ar": {
+        "eyebrow": "الحدود والخصوصية",
+        "title": "الأسوار الخرسانية سابقة الصب",
+        "summary": "أسوار آمنة ومتينة تمنح المشاريع طابعاً معمارياً متسقاً.",
+        "body": [
+          "تجمع الأسوار الخرسانية سابقة الصب بين الأمان والجمال؛ إذ يتم صب الألواح بتشطيب قابل للتكرار ثم تركيبها على محيط المشروع، والنتيجة خط سور متسق سريع الإنشاء وسهل الصيانة.",
+          "تشمل الأعمال المرجعية أسواراً لمشروع Elysian Mansions في Tilal Al Ghaf، والمراحل 1A و1D و1E في The Oasis، ومشروع The Oasis Phase 1B Mirage Main Works، وأسواراً سابقة الصب في مشروعي Al Kharafi وPalmiera Oasis."
+        ],
+        "capabilities": [
+          "ألواح الأسوار",
+          "أعمال محيط المجمعات",
+          "أسوار الخصوصية والأمان",
+          "تشطيب معماري متسق"
+        ],
+        "applications": [
+          "مجتمعات الفلل",
+          "المشاريع المخططة بشكل متكامل",
+          "تنسيق المواقع والفضاء العام"
+        ],
+        "metaTitle": "أسوار خرسانية سابقة الصب في دبي",
+        "metaDescription": "تركيب أسوار خرسانية سابقة الصب لمجتمعات الفلل والمشاريع المتكاملة، تنفذها MOULDEX PRECAST CONTRACTING L.L.C في دبي، الإمارات العربية المتحدة."
+      }
+    },
+    {
+      "slug": "precast-joints-sealant-works",
+      "number": "06",
+      "image": "/images/site-panels-01-474.jpg",
+      "imageAlt": {
+        "en": "Precast cladding panels being installed on a building under construction",
+        "ar": "ألواح تكسية سابقة الصب يجري تركيبها على مبنى قيد الإنشاء"
+      },
+      "sourcePages": [
+        6
+      ],
+      "relatedProjects": [],
+      "en": {
+        "eyebrow": "Weatherproofing and durability",
+        "title": "Precast Joints Sealant Works",
+        "summary": "Joint sealing that protects precast structures and keeps facades weathertight.",
+        "body": [
+          "Precast elements meet at joints, and those joints are what keeps a facade weathertight. Sealant works cover joint preparation, the correct sealant system for the movement expected, and a clean, consistent finish that protects the structure over its service life.",
+          "Sealant works are delivered as part of the company's precast installation scope, alongside the cladding, wall and structural packages."
+        ],
+        "capabilities": [
+          "Joint preparation",
+          "Sealant application",
+          "Movement joint treatment",
+          "Weatherproofing"
+        ],
+        "applications": [
+          "Facade panels",
+          "Boundary walls",
+          "Structural precast elements"
+        ],
+        "metaTitle": "Precast joints sealant works",
+        "metaDescription": "Precast joints sealant works that protect facades and structures, by Mouldex Precast Contracting L.L.C, Dubai, UAE."
+      },
+      "ar": {
+        "eyebrow": "العزل ضد العوامل الجوية والمتانة",
+        "title": "أعمال إحكام فواصل الخرسانة سابقة الصب",
+        "summary": "إحكام الفواصل يحمي المنشآت سابقة الصب ويضمن واجهات محكمة ضد العوامل الجوية.",
+        "body": [
+          "تلتقي العناصر سابقة الصب عند الفواصل، وهذه الفواصل هي التي تحافظ على إحكام الواجهة ضد العوامل الجوية. وتشمل أعمال الإحكام تحضير الفواصل واختيار نظام الإحكام المناسب للحركة المتوقعة وتشطيباً نظيفاً ومتسقاً يحمي المنشأ طوال عمره الخدمي.",
+          "تأتي أعمال الإحكام ضمن نطاق تركيب الخرسانة سابقة الصب للشركة، إلى جانب حزم التكسية والأسوار والهياكل."
+        ],
+        "capabilities": [
+          "تحضير الفواصل",
+          "تطبيق مواد الإحكام",
+          "معالجة فواصل الحركة",
+          "العزل ضد العوامل الجوية"
+        ],
+        "applications": [
+          "ألواح الواجهات",
+          "الأسوار الخرسانية",
+          "العناصر الإنشائية سابقة الصب"
+        ],
+        "metaTitle": "أعمال إحكام فواصل سابقة الصب",
+        "metaDescription": "أعمال إحكام فواصل الخرسانة سابقة الصب التي تحمي الواجهات والمنشآت، تنفذها MOULDEX PRECAST CONTRACTING L.L.C في دبي، الإمارات العربية المتحدة."
+      }
+    }
+  ]
+}

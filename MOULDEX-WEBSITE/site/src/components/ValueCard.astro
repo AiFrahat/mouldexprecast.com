@@ -1,0 +1,17 @@
+---
+import { pick } from '../lib/i18n';
+import type { Lang, ValueItem } from '../lib/types';
+
+interface Props {
+  value: ValueItem;
+  lang: Lang;
+  index: number;
+}
+const { value, lang, index } = Astro.props;
+const number = String(index + 1).padStart(2, '0');
+---
+<article class="value-card">
+  <span class="value-card__num">{number}</span>
+  <h3 class="value-card__title">{pick(value.title, lang)}</h3>
+  <p class="value-card__text">{pick(value.text, lang)}</p>
+</article>

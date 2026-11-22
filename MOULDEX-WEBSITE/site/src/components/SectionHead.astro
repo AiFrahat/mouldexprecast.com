@@ -1,0 +1,39 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  linkHref?: string;
+  linkLabel?: string;
+  headingId?: string;
+  class?: string;
+  as?: 'h1' | 'h2' | 'h3';
+}
+const {
+  eyebrow,
+  title,
+  lead,
+  linkHref,
+  linkLabel,
+  headingId,
+  class: className = '',
+  as = 'h2',
+} = Astro.props;
+const Heading = as;
+---
+<div class={['section-head', className].filter(Boolean).join(' ')}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <Heading id={headingId} class="h2">{title}</Heading>
+  {lead && <p class="lead">{lead}</p>}
+  {
+    linkHref && linkLabel && (
+      <a class="link-arrow" href={linkHref}>
+        {linkLabel}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 12h15" />
+          <path d="M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    )
+  }
+</div>

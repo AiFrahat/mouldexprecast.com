@@ -1,0 +1,676 @@
+{
+  "page": {
+    "eyebrow": {
+      "en": "Project references",
+      "ar": "المشاريع المرجعية"
+    },
+    "title": {
+      "en": "Seventeen reference projects across Dubai",
+      "ar": "17 مشروعاً مرجعياً في دبي"
+    },
+    "lead": {
+      "en": "Precast cladding, boundary walls, staircases, villas and hollow core slabs delivered as part of the company's published project reference list.",
+      "ar": "تكسيات سابقة الصب وأسوار خرسانية وسلالم وفلل وبلاطات مجوفة (هولو كور) ضمن قائمة المشاريع المرجعية المنشورة للشركة."
+    },
+    "featuredTitle": {
+      "en": "Selected projects",
+      "ar": "مشاريع مختارة"
+    },
+    "featuredLead": {
+      "en": "Four completed and two ongoing projects with photography in the company profile.",
+      "ar": "أربعة مشاريع مكتملة ومشروعان قيد التنفيذ، مع صور في الملف التعريفي للشركة."
+    },
+    "referenceTitle": {
+      "en": "Project reference list",
+      "ar": "قائمة المشاريع المرجعية"
+    },
+    "referenceNote": {
+      "en": "Reproduced from the project reference list in the company profile. Client, consultant and main contractor are shown as published.",
+      "ar": "منقولة من قائمة المشاريع المرجعية في الملف التعريفي للشركة، وتظهر أسماء العميل والاستشاري والمقاول الرئيسي كما وردت في المصدر."
+    },
+    "metaTitle": {
+      "en": "Projects",
+      "ar": "مشاريعنا"
+    },
+    "metaDescription": {
+      "en": "Precast project references in Dubai: Madinat Jumeirah Living, Bulgari Ocean Villas, The Oasis, Beachgate by Address, Al Lusaily and more.",
+      "ar": "مراجع مشاريع سابقة الصب في دبي: Madinat Jumeirah Living وBulgari Ocean Villas وThe Oasis وBeachgate by Address وAl Lusaily وغيرها."
+    },
+    "categories": [
+      {
+        "id": "all",
+        "label": {
+          "en": "All projects",
+          "ar": "جميع المشاريع"
+        }
+      },
+      {
+        "id": "claddings",
+        "label": {
+          "en": "Claddings",
+          "ar": "التكسيات"
+        }
+      },
+      {
+        "id": "boundary-walls",
+        "label": {
+          "en": "Boundary walls",
+          "ar": "الأسوار"
+        }
+      },
+      {
+        "id": "staircases",
+        "label": {
+          "en": "Staircases and structures",
+          "ar": "السلالم والهياكل"
+        }
+      },
+      {
+        "id": "villas",
+        "label": {
+          "en": "Villas",
+          "ar": "الفلل"
+        }
+      },
+      {
+        "id": "hollow-core",
+        "label": {
+          "en": "Hollow core slabs",
+          "ar": "البلاطات المجوفة"
+        }
+      },
+      {
+        "id": "other",
+        "label": {
+          "en": "Other precast works",
+          "ar": "أعمال سابقة الصب أخرى"
+        }
+      }
+    ]
+  },
+  "statuses": {
+    "completed": {
+      "en": "Completed",
+      "ar": "مكتمل"
+    },
+    "ongoing": {
+      "en": "On-going",
+      "ar": "قيد التنفيذ"
+    },
+    "awarded": {
+      "en": "Awarded",
+      "ar": "مُرسى"
+    },
+    "awarded-ongoing": {
+      "en": "Awarded / On-going",
+      "ar": "مُرسى وقيد التنفيذ"
+    }
+  },
+  "reference": [
+    {
+      "id": "ref-01",
+      "no": 1,
+      "category": "claddings",
+      "service": "precast-claddings",
+      "status": "completed",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast cladding panels for Madinat Jumeirah Living: Phase 3b",
+        "ar": "ألواح تكسية سابقة الصب لمشروع Madinat Jumeirah Living: المرحلة 3b"
+      },
+      "client": "Madinat Jumeirah Living",
+      "consultant": "Next Engineering Consultants",
+      "contractor": "Al Sahel Contracting Co. LLC"
+    },
+    {
+      "id": "ref-02",
+      "no": 2,
+      "category": "villas",
+      "service": "villas",
+      "status": "completed",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast triangle elements for Bulgari Ocean Villas",
+        "ar": "عناصر مثلثة سابقة الصب لمشروع Bulgari Ocean Villas"
+      },
+      "client": "MEERAS",
+      "consultant": "Khatib & Alami Consultants",
+      "contractor": "Innovo Build LLC"
+    },
+    {
+      "id": "ref-03",
+      "no": 3,
+      "category": "other",
+      "service": null,
+      "status": "completed",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast totem signage for Liwan-1 landscape and irrigation work",
+        "ar": "لافتات توتيم سابقة الصب لأعمال تنسيق المواقع والري في Liwan-1"
+      },
+      "client": "Dubai Holding Real Estate",
+      "consultant": "Parsons",
+      "contractor": "Aqar Landscape LLC"
+    },
+    {
+      "id": "ref-04",
+      "no": 4,
+      "category": "claddings",
+      "service": "precast-claddings",
+      "status": "completed",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast cladding panels for Madinat Jumeirah Living: Phase 4",
+        "ar": "ألواح تكسية سابقة الصب لمشروع Madinat Jumeirah Living: المرحلة 4"
+      },
+      "client": "Madinat Jumeirah Living",
+      "consultant": "Next Engineering Consultants",
+      "contractor": "Al Sahel Contracting Co. LLC"
+    },
+    {
+      "id": "ref-05",
+      "no": 5,
+      "category": "boundary-walls",
+      "service": "precast-boundary-walls",
+      "status": "ongoing",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast boundary walls for Elysian Mansions, Tilal Al Ghaf",
+        "ar": "أسوار خرسانية سابقة الصب لمشروع Elysian Mansions في Tilal Al Ghaf"
+      },
+      "client": "Majid Al Futtaim",
+      "consultant": "Arif & Bintoak Consultants",
+      "contractor": "Innovo Build LLC"
+    },
+    {
+      "id": "ref-06",
+      "no": 6,
+      "category": "staircases",
+      "service": "load-bearing-structures",
+      "status": "completed",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast staircases and wind tower for Madinat Jumeirah Living: Phase 4",
+        "ar": "سلالم سابقة الصب وبرج هواء لمشروع Madinat Jumeirah Living: المرحلة 4"
+      },
+      "client": "Madinat Jumeirah Living",
+      "consultant": "Next Engineering Consultants",
+      "contractor": "Al Sahel Contracting Co. LLC"
+    },
+    {
+      "id": "ref-07",
+      "no": 7,
+      "category": "staircases",
+      "service": "load-bearing-structures",
+      "status": "ongoing",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast staircases for Beachgate by Address",
+        "ar": "سلالم سابقة الصب لمشروع Beachgate by Address"
+      },
+      "client": "EMAAR",
+      "consultant": "Mirage Consultants",
+      "contractor": "Al Sahel Contracting Co. LLC"
+    },
+    {
+      "id": "ref-08",
+      "no": 8,
+      "category": "claddings",
+      "service": "precast-claddings",
+      "status": "ongoing",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast cladding panels for Sheikh Zayed National Museum Water Body Facility",
+        "ar": "ألواح تكسية سابقة الصب لمشروع Sheikh Zayed National Museum Water Body Facility"
+      },
+      "client": "ALDAR",
+      "consultant": "Atkins Realis",
+      "contractor": "Innovo Build LLC"
+    },
+    {
+      "id": "ref-09",
+      "no": 9,
+      "category": "other",
+      "service": null,
+      "status": "ongoing",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast works for the French International Private School",
+        "ar": "أعمال سابقة الصب في French International Private School"
+      },
+      "client": "French International Private School L.L.C",
+      "consultant": "Enmaa Engineering Consultants",
+      "contractor": "Beam Constructions LLC"
+    },
+    {
+      "id": "ref-10",
+      "no": 10,
+      "category": "boundary-walls",
+      "service": "precast-boundary-walls",
+      "status": "ongoing",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast boundary walls for phases 1A, 1D and 1E at The Oasis, Al Lusaily Developments",
+        "ar": "أسوار خرسانية سابقة الصب للمراحل 1A و1D و1E في The Oasis ضمن Al Lusaily Developments"
+      },
+      "client": "EMAAR",
+      "consultant": "X-Architects",
+      "contractor": "Fibrex Contracting L.L.C"
+    },
+    {
+      "id": "ref-11",
+      "no": 11,
+      "category": "staircases",
+      "service": "load-bearing-structures",
+      "status": "awarded-ongoing",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast staircases for Emaar Beachfront Development Plot Bayview",
+        "ar": "سلالم سابقة الصب لمشروع Emaar Beachfront Development Plot Bayview"
+      },
+      "client": "EMAAR",
+      "consultant": "Mirage Consultants",
+      "contractor": "Al Sahel Contracting Co. LLC"
+    },
+    {
+      "id": "ref-12",
+      "no": 12,
+      "category": "staircases",
+      "service": "load-bearing-structures",
+      "status": "awarded-ongoing",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast staircases for Emaar Beachfront Development Plot B01, Seapoint",
+        "ar": "سلالم سابقة الصب لمشروع Emaar Beachfront Development Plot B01، Seapoint"
+      },
+      "client": "EMAAR",
+      "consultant": "Mirage Consultants",
+      "contractor": "Al Sahel Contracting Co. LLC"
+    },
+    {
+      "id": "ref-13",
+      "no": 13,
+      "category": "claddings",
+      "service": "precast-claddings",
+      "status": "ongoing",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast cladding panels for Madinat Jumeirah Living: Phase 7",
+        "ar": "ألواح تكسية سابقة الصب لمشروع Madinat Jumeirah Living: المرحلة 7"
+      },
+      "client": "Madinat Jumeirah Living",
+      "consultant": "Conin International Consultants",
+      "contractor": "Al Sahel Contracting Co. LLC"
+    },
+    {
+      "id": "ref-14",
+      "no": 14,
+      "category": "boundary-walls",
+      "service": "precast-boundary-walls",
+      "status": "awarded",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast boundary walls for The Oasis Development Phase 1B, Mirage Main Works",
+        "ar": "أسوار خرسانية سابقة الصب لمشروع The Oasis Development المرحلة 1B، Mirage Main Works"
+      },
+      "client": "EMAAR",
+      "consultant": "X-Architects",
+      "contractor": "Dutco Construction Co LLC"
+    },
+    {
+      "id": "ref-15",
+      "no": 15,
+      "category": "staircases",
+      "service": "load-bearing-structures",
+      "status": "awarded",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast staircases for Hamdan Bin Rashid Cancer Hospital (HBRCH)",
+        "ar": "سلالم سابقة الصب لمشروع Hamdan Bin Rashid Cancer Hospital (HBRCH)"
+      },
+      "client": "Dubai Health",
+      "consultant": "Stantec",
+      "contractor": "Innovo Build LLC"
+    },
+    {
+      "id": "ref-16",
+      "no": 16,
+      "category": "claddings",
+      "service": "precast-claddings",
+      "status": "awarded",
+      "sourcePage": 11,
+      "name": {
+        "en": "Precast cladding panels for Madinat Jumeirah Living: Phase 6B",
+        "ar": "ألواح تكسية سابقة الصب لمشروع Madinat Jumeirah Living: المرحلة 6B"
+      },
+      "client": "Madinat Jumeirah Living",
+      "consultant": "Al Gurg Consultants",
+      "contractor": "Al Sahel Contracting Co. LLC"
+    },
+    {
+      "id": "ref-17",
+      "no": 17,
+      "category": "hollow-core",
+      "service": "hollow-core-slabs",
+      "status": "awarded",
+      "sourcePage": 11,
+      "name": {
+        "en": "Hollow core slabs for Al Lusaily Development Phase 01, Me'aisem Second, Dubai, UAE",
+        "ar": "بلاطات مجوفة (هولو كور) لمشروع Al Lusaily Development المرحلة 01 في Me'aisem Second، دبي، الإمارات العربية المتحدة"
+      },
+      "client": "EMAAR",
+      "consultant": "X-Architects",
+      "contractor": "Fibrex Contracting L.L.C"
+    }
+  ],
+  "showcase": [
+    {
+      "slug": "madinat-jumeirah-living-phase-4",
+      "refId": "ref-04",
+      "service": "precast-claddings",
+      "image": "/images/madinat-jumeirah-living-532.jpg",
+      "imageAlt": {
+        "en": "Madinat Jumeirah Living residential development with the Burj Al Arab in the background",
+        "ar": "مشروع Madinat Jumeirah Living السكني مع برج Burj Al Arab في الخلفية"
+      },
+      "sourcePages": [
+        11,
+        12
+      ],
+      "facts": {
+        "client": "Madinat Jumeirah Living",
+        "consultant": "Next Engineering Consultants",
+        "contractor": "Al Sahel Contracting Co. LLC",
+        "status": "completed",
+        "location": {
+          "en": "Dubai, United Arab Emirates",
+          "ar": "دبي، الإمارات العربية المتحدة"
+        }
+      },
+      "en": {
+        "title": "Madinat Jumeirah Living: Phase 4 cladding",
+        "category": "Precast claddings",
+        "summary": "Installation of precast cladding panels at Madinat Jumeirah Living: Phase 4.",
+        "body": [
+          "Phase 4 of Madinat Jumeirah Living is a residential development in the Madinat Jumeirah area of Dubai. Mouldex's scope covered the installation of precast cladding panels across the phase.",
+          "The project is recorded as completed in the company's project reference list."
+        ],
+        "scope": [
+          "Installation of precast cladding panels",
+          "Facade panel erection"
+        ],
+        "metaTitle": "Madinat Jumeirah Living Phase 4 cladding",
+        "metaDescription": "Installation of precast cladding panels at Madinat Jumeirah Living: Phase 4, Dubai."
+      },
+      "ar": {
+        "title": "تكسية الواجهات في المرحلة 4 من Madinat Jumeirah Living",
+        "category": "التكسيات سابقة الصب",
+        "summary": "تركيب ألواح تكسية سابقة الصب في مشروع Madinat Jumeirah Living: المرحلة 4.",
+        "body": [
+          "المرحلة 4 من مشروع Madinat Jumeirah Living تطوير سكني في منطقة Madinat Jumeirah بدبي. وشمل نطاق MOULDEX تركيب ألواح تكسية سابقة الصب في أرجاء المرحلة.",
+          "المشروع مسجل كمكتمل في قائمة المشاريع المرجعية للشركة، وموضح في الصفحة 12 من الملف التعريفي للشركة."
+        ],
+        "scope": [
+          "تركيب ألواح تكسية سابقة الصب",
+          "تركيب ألواح الواجهات"
+        ],
+        "metaTitle": "تكسية Madinat Jumeirah Living: المرحلة 4",
+        "metaDescription": "تركيب ألواح تكسية سابقة الصب في مشروع Madinat Jumeirah Living: المرحلة 4، دبي."
+      }
+    },
+    {
+      "slug": "bulgari-ocean-villas",
+      "refId": "ref-02",
+      "service": "villas",
+      "image": "/images/bulgari-ocean-villas-1152.jpg",
+      "imageAlt": {
+        "en": "Over-water villas at Bulgari Ocean Villas in Dubai with the city skyline in the distance",
+        "ar": "فلل فوق المياه في مشروع Bulgari Ocean Villas في دبي مع أفق المدينة البعيد"
+      },
+      "sourcePages": [
+        11,
+        13
+      ],
+      "facts": {
+        "client": "MEERAS",
+        "consultant": "Khatib & Alami Consultants",
+        "contractor": "Innovo Build LLC",
+        "status": "completed",
+        "location": {
+          "en": "Dubai, United Arab Emirates",
+          "ar": "دبي، الإمارات العربية المتحدة"
+        }
+      },
+      "en": {
+        "title": "Bulgari Ocean Villas triangle elements",
+        "category": "Villas",
+        "summary": "Installation of precast triangle panels at the Bulgari Villas project.",
+        "body": [
+          "Bulgari Ocean Villas is a waterfront villa development in Dubai. Mouldex's scope covered the installation of precast triangle panels, recorded in the project reference list as precast triangle elements for Bulgari Ocean Villas.",
+          "The project is recorded as completed in the company's project reference list."
+        ],
+        "scope": [
+          "Installation of precast triangle panels",
+          "Villa facade elements"
+        ],
+        "metaTitle": "Bulgari Ocean Villas precast triangle elements",
+        "metaDescription": "Installation of precast triangle panels at Bulgari Ocean Villas, Dubai."
+      },
+      "ar": {
+        "title": "العناصر المثلثة سابقة الصب في Bulgari Ocean Villas",
+        "category": "الفلل",
+        "summary": "تركيب ألواح مثلثة سابقة الصب في مشروع Bulgari Villas.",
+        "body": [
+          "Bulgari Ocean Villas تطوير فلل على الواجهة البحرية في دبي. وشمل نطاق MOULDEX تركيب ألواح مثلثة سابقة الصب، المسجلة في قائمة المشاريع المرجعية كعناصر مثلثة سابقة الصب لمشروع Bulgari Ocean Villas.",
+          "المشروع مسجل كمكتمل في قائمة المشاريع المرجعية للشركة، وموضح في الصفحة 13 من الملف التعريفي للشركة."
+        ],
+        "scope": [
+          "تركيب ألواح مثلثة سابقة الصب",
+          "عناصر واجهات الفلل"
+        ],
+        "metaTitle": "عناصر مثلثة سابقة الصب في Bulgari Ocean Villas",
+        "metaDescription": "تركيب ألواح مثلثة سابقة الصب في مشروع Bulgari Ocean Villas في دبي، الإمارات العربية المتحدة، من أعمال MOULDEX."
+      }
+    },
+    {
+      "slug": "lamborghini-villas",
+      "refId": null,
+      "service": "villas",
+      "image": "/images/lamborghini-villas-937.jpg",
+      "imageAlt": {
+        "en": "Villa facade at the Dubai Hills Vista development inspired by Automobili Lamborghini",
+        "ar": "واجهة فيلا في مشروع Dubai Hills Vista المستوحاة من Automobili Lamborghini"
+      },
+      "sourcePages": [
+        12
+      ],
+      "facts": {
+        "client": null,
+        "consultant": null,
+        "contractor": null,
+        "status": null,
+        "location": {
+          "en": "Dubai, United Arab Emirates",
+          "ar": "دبي، الإمارات العربية المتحدة"
+        }
+      },
+      "en": {
+        "title": "Lamborghini Villas GRC panels",
+        "category": "Villas",
+        "summary": "Installation of GRC panels at the Lamborghini Villas project.",
+        "body": [
+          "The Lamborghini Villas project is a villa development in Dubai. Mouldex's scope covered the installation of GRC panels, the glassfibre reinforced concrete elements that form the villa facades."
+        ],
+        "scope": [
+          "Installation of GRC panels",
+          "Villa facade panels"
+        ],
+        "metaTitle": "Lamborghini Villas GRC panels",
+        "metaDescription": "Installation of GRC panels at the Lamborghini Villas project, Dubai."
+      },
+      "ar": {
+        "title": "ألواح GRC في مشروع Lamborghini Villas",
+        "category": "الفلل",
+        "summary": "تركيب ألواح GRC في مشروع Lamborghini Villas.",
+        "body": [
+          "مشروع Lamborghini Villas تطوير فلل في دبي. وشمل نطاق MOULDEX تركيب ألواح GRC، وهي عناصر الخرسانة المسلحة بالألياف الزجاجية التي تشكل واجهات الفلل."
+        ],
+        "scope": [
+          "تركيب ألواح GRC",
+          "ألواح واجهات الفلل"
+        ],
+        "metaTitle": "ألواح GRC في مشروع Lamborghini Villas",
+        "metaDescription": "تركيب ألواح GRC في مشروع Lamborghini Villas في دبي، الإمارات العربية المتحدة، ضمن أعمال الخرسانة سابقة الصب التي تنفّذها MOULDEX."
+      }
+    },
+    {
+      "slug": "beachgate-by-address",
+      "refId": "ref-07",
+      "service": "load-bearing-structures",
+      "image": "/images/beachgate-address-474.jpg",
+      "imageAlt": {
+        "en": "Beachgate by Address residential towers in Dubai",
+        "ar": "أبراج Beachgate by Address السكنية في دبي"
+      },
+      "sourcePages": [
+        11,
+        14
+      ],
+      "facts": {
+        "client": "EMAAR",
+        "consultant": "Mirage Consultants",
+        "contractor": "Al Sahel Contracting Co. LLC",
+        "status": "ongoing",
+        "location": {
+          "en": "Dubai, United Arab Emirates",
+          "ar": "دبي، الإمارات العربية المتحدة"
+        }
+      },
+      "en": {
+        "title": "Beachgate by Address staircases",
+        "category": "Load-bearing structures",
+        "summary": "Installation of precast stairs at Beachgate by Address.",
+        "body": [
+          "Beachgate by Address is a residential tower development in Dubai. Mouldex's scope covers the installation of precast staircases, recorded as an on-going project in the company's reference list."
+        ],
+        "scope": [
+          "Installation of precast staircases"
+        ],
+        "metaTitle": "Beachgate by Address precast staircases",
+        "metaDescription": "Installation of precast staircases at Beachgate by Address, Dubai."
+      },
+      "ar": {
+        "title": "السلالم سابقة الصب في Beachgate by Address",
+        "category": "الهياكل الحاملة للأحمال",
+        "summary": "تركيب سلالم سابقة الصب في مشروع Beachgate by Address.",
+        "body": [
+          "Beachgate by Address تطوير أبراج سكنية في دبي. ويشمل نطاق MOULDEX تركيب سلالم سابقة الصب، وهو مسجل كمشروع قيد التنفيذ في قائمة المشاريع المرجعية للشركة."
+        ],
+        "scope": [
+          "تركيب سلالم سابقة الصب"
+        ],
+        "metaTitle": "سلالم سابقة الصب في Beachgate by Address",
+        "metaDescription": "تركيب سلالم خرسانية سابقة الصب في مشروع Beachgate by Address في دبي، الإمارات العربية المتحدة، من أعمال MOULDEX."
+      }
+    },
+    {
+      "slug": "palmiera-the-oasis",
+      "refId": "ref-10",
+      "service": "precast-boundary-walls",
+      "image": "/images/palmiera-oasis-474.jpg",
+      "imageAlt": {
+        "en": "Palmiera at The Oasis villa by Emaar with a private pool",
+        "ar": "فيلا Palmiera ضمن The Oasis من EMAAR مع مسبح خاص"
+      },
+      "sourcePages": [
+        11,
+        14
+      ],
+      "facts": {
+        "client": "EMAAR",
+        "consultant": "X-Architects",
+        "contractor": "Fibrex Contracting L.L.C",
+        "status": "ongoing",
+        "location": {
+          "en": "Dubai, United Arab Emirates",
+          "ar": "دبي، الإمارات العربية المتحدة"
+        }
+      },
+      "en": {
+        "title": "Palmiera, The Oasis boundary walls",
+        "category": "Precast boundary walls",
+        "summary": "Installation of precast boundary walls at Palmiera Oasis, part of The Oasis development at Al Lusaily.",
+        "body": [
+          "Palmiera is part of The Oasis development at Al Lusaily in Dubai. Mouldex's scope covers precast boundary walls across the phase, recorded as an on-going project in the company's reference list."
+        ],
+        "scope": [
+          "Installation of precast boundary walls"
+        ],
+        "metaTitle": "Palmiera The Oasis precast boundary walls",
+        "metaDescription": "Installation of precast boundary walls at Palmiera Oasis, The Oasis development, Dubai."
+      },
+      "ar": {
+        "title": "الأسوار المحيطة في Palmiera ضمن The Oasis",
+        "category": "الأسوار الخرسانية سابقة الصب",
+        "summary": "تركيب أسوار خرسانية سابقة الصب في Palmiera Oasis، ضمن مشروع The Oasis في Al Lusaily.",
+        "body": [
+          "Palmiera جزء من مشروع The Oasis في Al Lusaily بدبي. ويشمل نطاق MOULDEX أسواراً خرسانية سابقة الصب في أرجاء المرحلة، وهو مسجل كمشروع قيد التنفيذ في قائمة المشاريع المرجعية للشركة."
+        ],
+        "scope": [
+          "تركيب أسوار خرسانية سابقة الصب"
+        ],
+        "metaTitle": "أسوار سابقة الصب في Palmiera، The Oasis",
+        "metaDescription": "تركيب أسوار خرسانية سابقة الصب في Palmiera Oasis ضمن مشروع The Oasis، دبي."
+      }
+    },
+    {
+      "slug": "al-kharafi",
+      "refId": null,
+      "service": "precast-boundary-walls",
+      "image": "/images/al-kharafi-474.jpg",
+      "imageAlt": {
+        "en": "Townhouses with precast boundary walls at the Al Kharafi project",
+        "ar": "منازل متلاصقة مع أسوار خرسانية سابقة الصب في مشروع Al Kharafi"
+      },
+      "sourcePages": [
+        13
+      ],
+      "facts": {
+        "client": null,
+        "consultant": null,
+        "contractor": null,
+        "status": null,
+        "location": {
+          "en": "Dubai, United Arab Emirates",
+          "ar": "دبي، الإمارات العربية المتحدة"
+        }
+      },
+      "en": {
+        "title": "Al Kharafi boundary walls",
+        "category": "Precast boundary walls",
+        "summary": "Installation of precast boundary walls at the Al Kharafi project.",
+        "body": [
+          "The Al Kharafi project is a residential development in Dubai. Mouldex's scope covered the installation of precast boundary walls."
+        ],
+        "scope": [
+          "Installation of precast boundary walls"
+        ],
+        "metaTitle": "Al Kharafi precast boundary walls",
+        "metaDescription": "Installation of precast boundary walls at the Al Kharafi project, Dubai."
+      },
+      "ar": {
+        "title": "الأسوار المحيطة في مشروع Al Kharafi",
+        "category": "الأسوار الخرسانية سابقة الصب",
+        "summary": "تركيب أسوار خرسانية سابقة الصب في مشروع Al Kharafi.",
+        "body": [
+          "مشروع Al Kharafi تطوير سكني في دبي. وشمل نطاق MOULDEX تركيب أسوار خرسانية سابقة الصب، وهو موضح في الصفحة 13 من الملف التعريفي للشركة."
+        ],
+        "scope": [
+          "تركيب أسوار خرسانية سابقة الصب"
+        ],
+        "metaTitle": "أسوار خرسانية سابقة الصب في Al Kharafi",
+        "metaDescription": "تركيب أسوار خرسانية سابقة الصب في مشروع Al Kharafi في دبي، الإمارات العربية المتحدة، ضمن أعمال MOULDEX للخرسانة سابقة الصب."
+      }
+    }
+  ]
+}

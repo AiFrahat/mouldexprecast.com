@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import Picture from '../../../components/Picture.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { pages, services, site, projects, localized, servicesPage, statusLabels, serviceHref, getNav } from '../../../lib/content';
+import { pick } from '../../../lib/i18n';
+import type { Lang } from '../../../lib/types';
+
+export function getStaticPaths() {
+  return services.items.flatMap((service) =>
+    (['en', 'ar'] as const).map((lang) => ({
+      params: { lang, slug: service.slug },
+    })),
+  );
+}
+
+const { lang, slug } = Astro.params as { lang: Lang; slug: string };
+const service = services.items.find((item) => item.slug === slug);
+if (!service) throw new Error(`Unknown service "${slug}"`);
+
+const copy = localized(service, lang);
+const pageCopy = servicesPage(lang);
+const statuses = statusLabels(lang);
+const ui = site.ui;
+const nav = getNav(lang);
+const contactHref = nav.find((item) => item.key === 'contact')!.href;
+const servicesHref = nav.find((item) => item.key === 'services')!.href;
+const imageName = service.image.match(/\/([a-z0-9-]+)-\d+\.jpg$/)?.[1] ?? '';
+const related = service.relatedProjects
+  .map((id) => projects.reference.find((project) => project.id === id))
+  .filter((project): project is NonNullable<typeof project> => Boolean(project));
+const showcaseByRef = new Map(
+  projects.showcase
+    .filter((project) => project.refId)
+    .map((project) => [project.refId as string, project]),
+);
+const otherServices = services.items.filter((item) => item.slug !== service.slug);
+const homeCopy = localized(pages.home, lang);
+---
+<BaseLayout
+  lang={lang}
+  title={copy.metaTitle}
+  description={copy.metaDescription}
+  path={`services/${service.slug}`}
+>
+  <PageHero
+    lang={lang}
+    eyebrow={copy.eyebrow}
+    title={copy.title}
+    lead={copy.summary}
+    breadcrumbs={[
+      { label: pick(site.nav.services, lang), href: servicesHref },
+      { label: copy.title },
+    ]}
+  />
+
+  <section class="section" aria-labelledby="service-body">
+    <div class="container service-layout">
+      <div class="stack">
+        <figure class="figure">
+          <div class="figure__frame">
+            <Picture
+              name={imageName}
+              alt={pick(service.imageAlt, lang)}
+              sizes="(min-width: 980px) 62vw, 100vw"
+              loading="eager"
+            />
+          </div>
+        </figure>
+
+        <div class="prose" id="service-body">
+          {copy.body.map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+
+        <div class="grid grid--2">
+          <div class="aside-card">
+            <h2 class="aside-card__title">{pageCopy.capabilitiesTitle}</h2>
+            <ul class="check-list">
+              {copy.capabilities.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="aside-card">
+            <h2 class="aside-card__title">{pageCopy.referenceTitle}</h2>
+            <ul class="check-list">
+              {copy.applications.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <aside class="service-aside stack">
+        <div class="aside-card">
+          <h2 class="aside-card__title">{pick(ui.relatedServices, lang)}</h2>
+          <nav class="aside-list">
+            {otherServices.map((item) => (
+              <a href={serviceHref(lang, item.slug)}>{localized(item, lang).title}</a>
+            ))}
+          </nav>
+        </div>
+        <div class="aside-card">
+          <h2 class="aside-card__title">{pick(ui.contactUs, lang)}</h2>
+          <p>{pick(site.brand.shortDescription, lang)}</p>
+          <a class="btn" href={contactHref}>
+            <span>{pick(ui.contactUs, lang)}</span>
+            <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 12h15" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+        <a class="link-arrow" href={servicesHref}>
+          {pick(ui.backToServices, lang)}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12h15" />
+            <path d="M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  {
+    related.length > 0 && (
+      <section class="section section--soft" aria-labelledby="service-projects">
+        <div class="container">
+          <h2 class="h2 mb-3" id="service-projects">{pick(ui.relatedProjects, lang)}</h2>
+          <ul class="related-grid">
+            {related.map((project) => {
+              const showcase = showcaseByRef.get(project.id);
+              return (
+                <li class="related-card">
+                  <p class="related-card__meta">{project.client}</p>
+                  {showcase ? (
+                    <a class="related-card__title" href={`/${lang}/projects/${showcase.slug}/`}>
+                      {pick(project.name, lang)}
+                    </a>
+                  ) : (
+                    <span class="related-card__title">{pick(project.name, lang)}</span>
+                  )}
+                  <p class="related-card__sub">{project.consultant} · {project.contractor}</p>
+                  <span class={`status-pill status-pill--${project.status}`}>
+                    {statuses[project.status]}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <CtaBand
+    eyebrow={homeCopy.cta.eyebrow}
+    title={homeCopy.cta.title}
+    text={homeCopy.cta.text}
+    primary={{ label: homeCopy.cta.primaryCta, href: contactHref }}
+    secondary={{ label: homeCopy.cta.secondaryCta, href: contactHref }}
+  />
+</BaseLayout>
+
+<style>
+  .related-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  @media (min-width: 720px) {
+    .related-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .related-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .related-card {
+    display: grid;
+    gap: 0.45rem;
+    align-content: start;
+    padding: clamp(1.25rem, 2vw, 1.6rem);
+    background: var(--paper);
+  }
+
+  .related-card__meta {
+    font-family: var(--font-latin);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  [dir='rtl'] .related-card__meta {
+    font-family: var(--font-arabic);
+    font-size: 0.84rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .related-card__title {
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  [dir='rtl'] .related-card__title {
+    line-height: 1.6;
+  }
+
+  a.related-card__title:hover {
+    color: var(--blue);
+  }
+
+  .related-card__sub {
+    font-size: 0.84rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .related-card .status-pill {
+    justify-self: start;
+    margin-block-start: 0.35rem;
+  }
+</style>

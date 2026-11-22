@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { pages, services, site, localized, servicesPage, getNav } from '../../../lib/content';
+import { pick } from '../../../lib/i18n';
+import type { Lang } from '../../../lib/types';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'ar' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const pageCopy = servicesPage(lang);
+const ui = site.ui;
+const nav = getNav(lang);
+const contactHref = nav.find((item) => item.key === 'contact')!.href;
+const homeCopy = localized(pages.home, lang);
+const exploreLabel = pick(ui.exploreService, lang);
+---
+<BaseLayout
+  lang={lang}
+  title={pageCopy.metaTitle}
+  description={pageCopy.metaDescription}
+  path="services"
+>
+  <PageHero
+    lang={lang}
+    eyebrow={pageCopy.eyebrow}
+    title={pageCopy.title}
+    lead={pageCopy.lead}
+    breadcrumbs={[{ label: pick(site.nav.services, lang) }]}
+  />
+
+  <section class="section" aria-labelledby="services-list">
+    <div class="container">
+      <p class="lead section-head--wide" id="services-list">{pageCopy.intro}</p>
+      <div class="grid grid--3 mt-4">
+        {services.items.map((service) => (
+          <ServiceCard service={service} lang={lang} exploreLabel={exploreLabel} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow={homeCopy.cta.eyebrow}
+    title={homeCopy.cta.title}
+    text={homeCopy.cta.text}
+    primary={{ label: homeCopy.cta.primaryCta, href: contactHref }}
+    secondary={{ label: homeCopy.cta.secondaryCta, href: contactHref }}
+  />
+</BaseLayout>
+

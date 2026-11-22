@@ -1,0 +1,37 @@
+---
+import Picture from './Picture.astro';
+import Icons from './Icons.astro';
+import { projectHref, showcaseImageName, localized } from '../lib/content';
+import { pick } from '../lib/i18n';
+import type { Lang, ShowcaseProject } from '../lib/types';
+
+interface Props {
+  project: ShowcaseProject;
+  lang: Lang;
+  viewLabel: string;
+}
+const { project, lang, viewLabel } = Astro.props;
+const copy = localized(project, lang);
+const title = copy.title;
+const client = project.facts.client;
+---
+<article class="project-card">
+  <div class="project-card__media">
+    <Picture
+      name={showcaseImageName(project)}
+      alt={pick(project.imageAlt, lang)}
+      sizes="(min-width: 900px) 33vw, (min-width: 640px) 50vw, 100vw"
+    />
+  </div>
+  <a class="project-card__arrow" href={projectHref(lang, project.slug)} aria-label={`${viewLabel}: ${title}`}>
+    <Icons name="arrow-up-right" />
+  </a>
+  <div class="project-card__body">
+    <p class="project-card__meta">{copy.category}</p>
+    <h3 class="project-card__title">
+      <a href={projectHref(lang, project.slug)}>{title}</a>
+    </h3>
+    {client && <p class="project-card__client">{client}</p>}
+  </div>
+</article>
+

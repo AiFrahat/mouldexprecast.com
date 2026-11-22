@@ -1,0 +1,325 @@
+---
+import { site, getNav, isCurrentPath, services, serviceHref, localized } from '../lib/content';
+import { langLabel, otherLang, pick, switchLangPath } from '../lib/i18n';
+import type { Lang } from '../lib/types';
+import Icons from './Icons.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const pathname = Astro.url.pathname;
+const nav = getNav(lang);
+const ui = site.ui;
+const contact = site.contact;
+const targetLang = otherLang(lang);
+const otherHref = switchLangPath(pathname, targetLang);
+const homeHref = nav[0].href;
+const switchLabel = targetLang === 'ar' ? ui.switchToArabic[lang] : ui.switchToEnglish[lang];
+const switchAria = targetLang === 'ar' ? ui.switchLangAria.en : ui.switchLangAria.ar;
+const servicesNavHref = nav.find((item) => item.key === 'services')!.href;
+const contactHref = nav.find((item) => item.key === 'contact')!.href;
+const serviceLabel = pick(site.nav.services, lang);
+const navLabel = pick(ui.servicesMenuLabel, lang);
+const serviceLinks = services.items.map((item) => ({
+  slug: item.slug,
+  title: localized(item, lang).title,
+  href: serviceHref(lang, item.slug),
+}));
+---
+<header class="site-header">
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <ul class="topbar__list">
+        <li>
+          <a href={`tel:${contact.phoneHref}`}>
+            <Icons name="phone" />
+            <span class="ltr">{contact.phoneIntl}</span>
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${contact.email}`}>
+            <Icons name="mail" />
+            <span class="ltr">{contact.email}</span>
+          </a>
+        </li>
+      </ul>
+      <p class="topbar__place">
+        <Icons name="pin" />
+        <span>{pick(ui.topbarLocation, lang)}</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="container header__inner">
+    <a class="brand" href={homeHref} aria-label={pick(site.brand.name, lang)}>
+      <img
+        src="/brand/mouldex-logo-full.png"
+        width="1447"
+        height="980"
+        alt={pick(site.brand.name, lang)}
+        fetchpriority="high"
+        decoding="async"
+      />
+    </a>
+
+    <nav class="nav" aria-label={pick(ui.primaryNavAria, lang)}>
+      <ul class="nav__list">
+        {
+          nav.map((item) => (
+            <li
+              class={`nav__item${item.key === 'services' ? ' nav__item--has-menu' : ''}${
+                isCurrentPath(pathname, item.href) ? ' nav__item--current' : ''
+              }`}
+            >
+              <a
+                class="nav__link"
+                href={item.href}
+                aria-current={isCurrentPath(pathname, item.href) ? 'page' : undefined}
+              >
+                {item.label}
+                {item.key === 'services' && <Icons name="chevron-down" class="nav__chevron" />}
+              </a>
+              {item.key === 'services' && (
+                <div class="nav__menu">
+                  <p class="nav__menu-label">{navLabel}</p>
+                  {serviceLinks.map((service) => (
+                    <a class="nav__menu-link" href={service.href}>
+                      <span>{service.title}</span>
+                      <Icons name="arrow" />
+                    </a>
+                  ))}
+                  <a class="nav__menu-all" href={servicesNavHref}>
+                    {pick(ui.viewAllServices, lang)}
+                  </a>
+                </div>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="header__end">
+      <a class="lang-switch" href={otherHref} hreflang={targetLang} lang={targetLang}>
+        <Icons name="globe" />
+        <span>{switchLabel}</span>
+      </a>
+      <a class="btn header__cta" href={contactHref}>
+        <span>{pick(ui.contactUs, lang)}</span>
+        <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 12h15" />
+          <path d="M13 6l6 6-6 6" />
+        </svg>
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={pick(ui.menu, lang)}
+      >
+        <Icons name="menu" />
+        <span>{pick(ui.menu, lang)}</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu data-open="false" role="dialog" aria-modal="true" aria-label={pick(ui.mobileNavAria, lang)}>
+  <div class="mobile-menu__top">
+    <a class="mobile-menu__logo" href={homeHref} aria-label={pick(site.brand.name, lang)}>
+      <img
+        src="/brand/mouldex-logo-reversed-96.png"
+        width="144"
+        height="96"
+        alt={pick(site.brand.name, lang)}
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+    <button class="mobile-menu__close" type="button" data-menu-close aria-label={pick(ui.closeMenuAria, lang)}>
+      <span>{pick(ui.close, lang)}</span>
+      <Icons name="close" />
+    </button>
+  </div>
+
+  <nav class="mobile-menu__nav" aria-label={pick(ui.mobileNavAria, lang)}>
+    {
+      nav.map((item) => (
+        <a
+          class="mobile-menu__link"
+          href={item.href}
+          aria-current={isCurrentPath(pathname, item.href) ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+    <div class="mobile-menu__sub">
+      <p class="mobile-menu__sub-title">{serviceLabel}</p>
+      {
+        serviceLinks.map((service) => (
+          <a href={service.href}>{service.title}</a>
+        ))
+      }
+    </div>
+  </nav>
+
+  <div class="mobile-menu__foot">
+    <a href={`tel:${contact.phoneHref}`}>
+      <Icons name="phone" />
+      <span class="ltr">{contact.phoneIntl}</span>
+    </a>
+    <a href={`mailto:${contact.email}`}>
+      <Icons name="mail" />
+      <span class="ltr">{contact.email}</span>
+    </a>
+    <a class="lang-switch lang-switch--menu" href={otherHref} hreflang={targetLang} lang={targetLang}>
+      <Icons name="globe" />
+      <span>{switchLabel}</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .nav__menu-label {
+    padding: 0.35rem 0.85rem 0.6rem;
+    font-family: var(--font-latin);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray);
+    border-block-end: 1px solid var(--line);
+    margin-block-end: 0.35rem;
+  }
+
+  [dir='rtl'] .nav__menu-label {
+    font-family: var(--font-arabic);
+    font-size: 0.8rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .mobile-menu__sub-title {
+    font-family: var(--font-latin);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-block-end: 0.4rem;
+  }
+
+  [dir='rtl'] .mobile-menu__sub-title {
+    font-family: var(--font-arabic);
+    font-size: 0.82rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .mobile-menu__foot a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .mobile-menu__foot :global(svg) {
+    inline-size: 16px;
+    block-size: 16px;
+    color: var(--yellow);
+  }
+
+  .lang-switch--menu {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.35);
+    justify-self: start;
+    margin-block-start: 0.5rem;
+  }
+
+  .lang-switch--menu:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-menu-close]');
+
+  if (toggle && menu) {
+    const focusables = (): HTMLElement[] =>
+      Array.from(
+        menu.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'),
+      ).filter((element) => element.checkVisibility());
+
+    const setOpen = (open: boolean) => {
+      menu.dataset.open = open ? 'true' : 'false';
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.dataset.menuOpen = open ? 'true' : 'false';
+      if (open) {
+        document.documentElement.style.overflow = 'hidden';
+        // The dialog transitions from visibility:hidden; focus can be ignored
+        // until it is actually visible, so retry briefly after opening.
+        let attempts = 0;
+        const focusFirst = () => {
+          if (menu.dataset.open !== 'true') return;
+          const first = focusables()[0];
+          if (first) {
+            first.focus({ preventScroll: true });
+            if (document.activeElement === first) return;
+          }
+          attempts += 1;
+          if (attempts < 15) window.setTimeout(focusFirst, 40);
+        };
+        window.setTimeout(focusFirst, 0);
+      } else {
+        document.documentElement.style.overflow = '';
+        toggle.focus();
+      }
+    };
+
+    toggle.addEventListener('click', () => setOpen(menu.dataset.open !== 'true'));
+    closeBtn?.addEventListener('click', () => setOpen(false));
+    menu.querySelectorAll('a[href]').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (menu.dataset.open !== 'true') return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setOpen(false);
+        return;
+      }
+      if (event.key === 'Tab') {
+        const items = focusables();
+        if (items.length === 0) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        const active = document.activeElement as HTMLElement | null;
+        if (event.shiftKey && active === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && active === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1180 && menu.dataset.open === 'true') setOpen(false);
+    });
+  }
+</script>
+
+
+
+
+

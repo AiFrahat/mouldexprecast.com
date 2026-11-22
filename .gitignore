@@ -1,4 +1,40 @@
+# ---------------------------------------------------------------------------
+# Published site (repository root) is the GitHub Pages build output.
+# Everything ignored below is either a local-only artifact or regenerable.
+# ---------------------------------------------------------------------------
+
+# Unrelated local media (not part of the website)
+*.mp4
+Main.png
+Screenshot *.png
+logo-preview.jpg
+
+# Company-supplied source materials are NOT committed:
+# the pre-qualification PDF and the extracted text contain internal employee
+# records and signed documents (see MOULDEX-WEBSITE/docs/source-inventory.md).
+# Keep them available locally next to the project.
+MOULDEX-WEBSITE/source-materials/*.pdf
+MOULDEX-WEBSITE/source-materials/*.png
+MOULDEX-WEBSITE/source-materials/extracted/text/
+
+# Astro project working artifacts
+MOULDEX-WEBSITE/site/node_modules/
+MOULDEX-WEBSITE/site/dist/
+MOULDEX-WEBSITE/site/.astro/
+MOULDEX-WEBSITE/site/test-results/
+MOULDEX-WEBSITE/site/playwright-report/
+MOULDEX-WEBSITE/site/qa/
+
+# Regenerable PDF extraction outputs
+MOULDEX-WEBSITE/source-materials/extracted/pages/
+MOULDEX-WEBSITE/source-materials/extracted/images/
+
+# Local-only privacy fixtures (internal names used by the privacy test)
+MOULDEX-WEBSITE/site/tests/fixtures/*.local.txt
+
+# Python / OS noise
 __pycache__/
+*.pyc
 *.log
 .DS_Store
 Thumbs.db

@@ -1,0 +1,52 @@
+---
+/**
+ * Responsive <img> built from the generated image manifest, so every photograph
+ * is served from a variant that never exceeds its original pixel width.
+ */
+import manifest from '../data/images.json';
+import type { WebImage } from '../lib/types';
+
+interface Props {
+  name: string;
+  alt: string;
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  class?: string;
+  decoding?: 'async' | 'sync' | 'auto';
+  caption?: string;
+}
+
+const {
+  name,
+  alt,
+  sizes = '100vw',
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  class: className = '',
+  decoding = 'async',
+} = Astro.props;
+
+const image = (manifest as WebImage[]).find((entry) => entry.name === name);
+if (!image) {
+  throw new Error(`Picture: unknown image "${name}"`);
+}
+
+const widest = image.variants.reduce((a, b) => (b.width > a.width ? b : a), image.variants[0]);
+const srcset = [...image.variants].sort((a, b) => b.width - a.width)
+  .map((variant) => `${variant.file} ${variant.width}w`)
+  .join(', ');
+---
+<img
+  src={widest.file}
+  srcset={srcset}
+  sizes={sizes}
+  width={widest.width}
+  height={widest.height}
+  alt={alt}
+  loading={loading}
+  decoding={decoding}
+  fetchpriority={fetchpriority}
+  class={className}
+/>
+

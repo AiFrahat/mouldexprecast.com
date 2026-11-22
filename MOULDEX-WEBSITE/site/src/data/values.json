@@ -1,0 +1,73 @@
+{
+  "eyebrow": { "en": "Company values", "ar": "قيم الشركة" },
+  "title": {
+    "en": "The standards we hold on every site",
+    "ar": "المعايير التي نلتزم بها في كل موقع"
+  },
+  "lead": {
+    "en": "Six commitments guide how Mouldex plans, casts, delivers and installs precast across Dubai and the GCC.",
+    "ar": "ستة التزامات توجّه طريقة تخطيط MOULDEX وتصنيعها وتسليمها وتركيبها للخرسانة سابقة الصب في دبي ودول الخليج."
+  },
+  "items": [
+    {
+      "id": "customer-delight",
+      "title": { "en": "Customer delight", "ar": "رضا العملاء" },
+      "text": {
+        "en": "Achieving 100% customer satisfaction through exemplary service.",
+        "ar": "تحقيق رضا العملاء بنسبة 100% من خلال خدمة متميزة."
+      }
+    },
+    {
+      "id": "health-environmental-safety",
+      "title": {
+        "en": "Health and environmental safety",
+        "ar": "الصحة والسلامة البيئية"
+      },
+      "text": {
+        "en": "Prioritising the well-being of our workforce and the sustainability of our projects.",
+        "ar": "إعطاء الأولوية لسلامة ورفاهية فرق العمل واستدامة مشاريعنا."
+      }
+    },
+    {
+      "id": "quality-in-work",
+      "title": { "en": "Quality in work", "ar": "الجودة في العمل" },
+      "text": {
+        "en": "Ensuring excellence in every facet of our operations.",
+        "ar": "ضمان التميّز في كل جانب من جوانب عملياتنا."
+      }
+    },
+    {
+      "id": "timely-delivery",
+      "title": {
+        "en": "Timely delivery of services",
+        "ar": "تقديم الخدمات في الوقت المحدد"
+      },
+      "text": {
+        "en": "Adhering to strict timelines for efficient project completion.",
+        "ar": "الالتزام بجداول زمنية صارمة لإنجاز المشاريع بكفاءة."
+      }
+    },
+    {
+      "id": "technology-integration",
+      "title": {
+        "en": "Technology integration",
+        "ar": "دمج التقنية"
+      },
+      "text": {
+        "en": "Embracing and implementing up-to-date technologies for enhanced solutions.",
+        "ar": "اعتماد وتطبيق أحدث التقنيات لتقديم حلول أفضل."
+      }
+    },
+    {
+      "id": "continual-improvement",
+      "title": {
+        "en": "Continual improvement",
+        "ar": "التحسين المستمر"
+      },
+      "text": {
+        "en": "A commitment to ongoing enhancement in all aspects of our operations.",
+        "ar": "التزام بالتحسين المستمر في جميع جوانب عملياتنا."
+      }
+    }
+  ]
+}

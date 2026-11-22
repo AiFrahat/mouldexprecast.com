@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icons from '../../components/Icons.astro';
+import { pages, site, localized, getNav } from '../../lib/content';
+import { pick } from '../../lib/i18n';
+import type { Lang } from '../../lib/types';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'ar' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const copy = localized(pages.contact, lang);
+const ui = site.ui;
+const contact = site.contact;
+const nav = getNav(lang);
+const servicesHref = nav.find((item) => item.key === 'services')!.href;
+
+const contactCards = [
+  {
+    icon: 'phone',
+    label: pick(ui.telephone, lang),
+    value: contact.phoneIntl,
+    href: `tel:${contact.phoneHref}`,
+  },
+  {
+    icon: 'phone',
+    label: pick(ui.mobile, lang),
+    value: contact.mobileIntl,
+    href: `tel:${contact.mobileHref}`,
+  },
+  {
+    icon: 'mail',
+    label: pick(ui.emailLabel, lang),
+    value: contact.email,
+    href: `mailto:${contact.email}`,
+  },
+  {
+    icon: 'fax',
+    label: pick(ui.fax, lang),
+    value: contact.faxIntl,
+    href: null,
+  },
+  {
+    icon: 'pin',
+    label: pick(ui.poBox, lang),
+    value: contact.poBox,
+    href: null,
+  },
+  {
+    icon: 'pin',
+    label: pick(ui.office, lang),
+    value: pick(contact.city, lang) + ', ' + pick(contact.country, lang),
+    href: null,
+  },
+];
+const homeCopy = localized(pages.home, lang);
+---
+<BaseLayout
+  lang={lang}
+  title={copy.metaTitle}
+  description={copy.metaDescription}
+  path="contact"
+  fullTitle
+>
+  <PageHero
+    lang={lang}
+    eyebrow={copy.eyebrow}
+    title={copy.title}
+    lead={copy.lead}
+    breadcrumbs={[{ label: pick(site.nav.contact, lang) }]}
+  />
+
+  <section class="section" aria-labelledby="contact-details">
+    <div class="container contact-layout">
+      <div class="stack">
+        <SectionHead
+          eyebrow={copy.details.eyebrow}
+          title={copy.details.title}
+          lead={copy.details.text}
+          headingId="contact-details"
+        />
+        <div class="contact-cards">
+          {contactCards.map((card) => (
+            <div class="contact-card">
+              <Icons name={card.icon} />
+              <p class="contact-card__label">{card.label}</p>
+              {card.href ? (
+                <a class="contact-card__value" href={card.href}>
+                  {card.value}
+                </a>
+              ) : (
+                <p class="contact-card__value">{card.value}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <ContactForm
+        lang={lang}
+        heading={copy.form.eyebrow}
+        intro={copy.form.intro}
+      />
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="contact-location">
+    <div class="container split">
+      <div class="stack">
+        <SectionHead
+          eyebrow={copy.location.eyebrow}
+          title={copy.location.title}
+          lead={copy.location.text}
+          headingId="contact-location"
+        />
+      </div>
+      <div class="aside-card">
+        <h2 class="aside-card__title">{pick(site.ui.footerServices, lang)}</h2>
+        <p>{pick(site.brand.shortDescription, lang)}</p>
+        <a class="link-arrow" href={servicesHref}>
+          {pick(ui.viewAllServices, lang)}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12h15" />
+            <path d="M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow={homeCopy.cta.eyebrow}
+    title={homeCopy.cta.title}
+    text={homeCopy.cta.text}
+    primary={{ label: homeCopy.cta.primaryCta, href: `mailto:${contact.email}` }}
+    secondary={{ label: homeCopy.cta.secondaryCta, href: `tel:${contact.phoneHref}` }}
+  />
+</BaseLayout>
+
+<style>
+  .contact-card__value {
+    font-family: var(--font-latin);
+    font-size: 1rem;
+  }
+
+  [dir='rtl'] .contact-card__value {
+    font-family: var(--font-arabic);
+    font-size: 0.98rem;
+  }
+
+</style>
+
+
+

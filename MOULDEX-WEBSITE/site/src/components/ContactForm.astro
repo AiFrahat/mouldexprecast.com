@@ -1,0 +1,180 @@
+---
+import { site, services, localized } from '../lib/content';
+import { pick } from '../lib/i18n';
+import type { Lang } from '../lib/types';
+
+interface Props {
+  lang: Lang;
+  heading: string;
+  intro: string;
+}
+const { lang, heading, intro } = Astro.props;
+const ui = site.ui.form;
+const contact = site.contact;
+const serviceOptions = services.items.map((item) => ({
+  value: item.slug,
+  label: localized(item, lang).title,
+}));
+const requiredLabel = pick(ui.required, lang);
+const optionalLabel = pick(ui.optional, lang);
+const subjectPrefix = pick(ui.subjectPrefix, lang);
+const generalLabel = pick(ui.serviceOther, lang);
+---
+<div class="contact-form-block">
+  <div class="stack stack--sm mb-3">
+    <p class="eyebrow">{heading}</p>
+    <p class="lead">{intro}</p>
+  </div>
+
+  <form
+    class="form"
+    action={`mailto:${contact.email}`}
+    method="post"
+    enctype="text/plain"
+    data-contact-form
+    data-email={contact.email}
+    data-subject-prefix={subjectPrefix}
+    data-general-label={generalLabel}
+  >
+    <div class="form__row form__row--2">
+      <div class="field">
+        <label for="contact-name"
+          >{pick(ui.name, lang)} <span class="req" aria-hidden="true">*</span></label
+        >
+        <input
+          id="contact-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+          aria-required="true"
+          placeholder={pick(ui.name, lang)}
+        />
+      </div>
+      <div class="field">
+        <label for="contact-company">{pick(ui.company, lang)}</label>
+        <input
+          id="contact-company"
+          name="company"
+          type="text"
+          autocomplete="organization"
+          placeholder={optionalLabel}
+        />
+      </div>
+    </div>
+
+    <div class="form__row form__row--2">
+      <div class="field">
+        <label for="contact-email"
+          >{pick(ui.email, lang)} <span class="req" aria-hidden="true">*</span></label
+        >
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          aria-required="true"
+          placeholder="name@company.com"
+        />
+      </div>
+      <div class="field">
+        <label for="contact-phone">{pick(ui.phone, lang)}</label>
+        <input
+          id="contact-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          placeholder="+971 4 000 0000"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="contact-service">{pick(ui.service, lang)}</label>
+      <select id="contact-service" name="service">
+        <option value="">{generalLabel}</option>
+        {serviceOptions.map((option) => <option value={option.value}>{option.label}</option>)}
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="contact-message"
+        >{pick(ui.message, lang)} <span class="req" aria-hidden="true">*</span></label
+      >
+      <textarea
+        id="contact-message"
+        name="message"
+        required
+        aria-required="true"
+        aria-describedby="contact-form-note"
+        placeholder={requiredLabel}
+      ></textarea>
+    </div>
+
+    <p class="form__note" id="contact-form-note">{pick(ui.note, lang)}</p>
+
+    <div class="form__actions">
+      <button class="btn" type="submit">
+        <span>{pick(ui.submit, lang)}</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="btn__arrow">
+          <path d="M4 12h15" />
+          <path d="M13 6l6 6-6 6" />
+        </svg>
+      </button>
+      <p class="form__hint">{pick(ui.privacyHint, lang)}</p>
+    </div>
+  </form>
+</div>
+
+<style>
+  .form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  if (form) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const email = form.dataset.email ?? '';
+      const prefix = form.dataset.subjectPrefix ?? 'Project enquiry';
+      const general = form.dataset.generalLabel ?? 'General enquiry';
+      const serviceSelect = form.querySelector<HTMLSelectElement>('select[name="service"]');
+      const serviceLabel =
+        serviceSelect && serviceSelect.selectedIndex >= 0
+          ? serviceSelect.options[serviceSelect.selectedIndex]?.text ?? general
+          : general;
+      const name = String(data.get('name') ?? '').trim();
+      const company = String(data.get('company') ?? '').trim();
+      const from = String(data.get('email') ?? '').trim();
+      const phone = String(data.get('phone') ?? '').trim();
+      const message = String(data.get('message') ?? '').trim();
+
+      const subject = `${prefix} — ${serviceLabel}`;
+      const lines = [
+        `${form.dataset.labelName ?? 'Name'}: ${name}`,
+        company ? `${form.dataset.labelCompany ?? 'Company'}: ${company}` : '',
+        `${form.dataset.labelEmail ?? 'Email'}: ${from}`,
+        phone ? `${form.dataset.labelPhone ?? 'Phone'}: ${phone}` : '',
+        `${form.dataset.labelService ?? 'Service'}: ${serviceLabel}`,
+        '',
+        message,
+      ].filter(Boolean);
+
+      const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      form.dataset.lastMailto = mailto;
+
+      const status = form.querySelector<HTMLElement>('[data-form-status]');
+      if (status) status.textContent = mailto;
+      window.location.href = mailto;
+    });
+  }
+</script>
+

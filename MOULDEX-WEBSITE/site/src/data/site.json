@@ -1,0 +1,330 @@
+{
+  "brand": {
+    "legalName": {
+      "en": "Mouldex Precast Contracting L.L.C",
+      "ar": "MOULDEX PRECAST CONTRACTING L.L.C"
+    },
+    "name": {
+      "en": "Mouldex Precast",
+      "ar": "MOULDEX PRECAST"
+    },
+    "tagline": {
+      "en": "Precast contracting for the UAE",
+      "ar": "مقاولات الخرسانة سابقة الصب في الإمارات"
+    },
+    "shortDescription": {
+      "en": "Dubai-based precast contractor delivering turnkey precast solutions across commercial, civil and residential projects.",
+      "ar": "مقاول خرسانة سابقة الصب مقرّه دبي، يقدّم حلولاً متكاملة للخرسانة سابقة الصب في المشاريع التجارية والمدنية والسكنية."
+    }
+  },
+  "contact": {
+    "phone": "04 436 42 43",
+    "phoneIntl": "+971 4 436 4243",
+    "phoneHref": "+97144364243",
+    "fax": "04 447 03 17",
+    "faxIntl": "+971 4 447 0317",
+    "mobile": "055 437 33 68",
+    "mobileHref": "+971554373368",
+    "mobileIntl": "+971 55 437 3368",
+    "email": "samy.mdxdxb@outlook.com",
+    "poBox": "393390",
+    "city": {
+      "en": "Dubai",
+      "ar": "دبي"
+    },
+    "country": {
+      "en": "United Arab Emirates",
+      "ar": "الإمارات العربية المتحدة"
+    },
+    "addressLine": {
+      "en": "Dubai, United Arab Emirates | PO Box 393390",
+      "ar": "دبي، الإمارات العربية المتحدة | ص.ب 393390"
+    }
+  },
+  "nav": {
+    "home": {
+      "en": "Home",
+      "ar": "الرئيسية"
+    },
+    "about": {
+      "en": "About",
+      "ar": "من نحن"
+    },
+    "services": {
+      "en": "Services",
+      "ar": "خدماتنا"
+    },
+    "projects": {
+      "en": "Projects",
+      "ar": "مشاريعنا"
+    },
+    "contact": {
+      "en": "Contact",
+      "ar": "تواصل معنا"
+    }
+  },
+  "ui": {
+    "skipToContent": {
+      "en": "Skip to content",
+      "ar": "تجاوز إلى المحتوى"
+    },
+    "menu": {
+      "en": "Menu",
+      "ar": "القائمة"
+    },
+    "close": {
+      "en": "Close",
+      "ar": "إغلاق"
+    },
+    "switchToArabic": {
+      "en": "العربية",
+      "ar": "العربية"
+    },
+    "switchToEnglish": {
+      "en": "English",
+      "ar": "English"
+    },
+    "switchLangAria": {
+      "en": "Switch to Arabic",
+      "ar": "التبديل إلى الإنجليزية"
+    },
+    "topbarLocation": {
+      "en": "Dubai, United Arab Emirates",
+      "ar": "دبي، الإمارات العربية المتحدة"
+    },
+    "breadcrumbHome": {
+      "en": "Home",
+      "ar": "الرئيسية"
+    },
+    "breadcrumbAria": {
+      "en": "Breadcrumb",
+      "ar": "مسار التنقل"
+    },
+    "readMore": {
+      "en": "Read more",
+      "ar": "اقرأ المزيد"
+    },
+    "exploreService": {
+      "en": "Explore service",
+      "ar": "استكشف الخدمة"
+    },
+    "viewProject": {
+      "en": "View project",
+      "ar": "عرض المشروع"
+    },
+    "viewAllServices": {
+      "en": "View all services",
+      "ar": "جميع الخدمات"
+    },
+    "viewAllProjects": {
+      "en": "View all projects",
+      "ar": "جميع المشاريع"
+    },
+    "contactUs": {
+      "en": "Contact us",
+      "ar": "تواصل معنا"
+    },
+    "requestPrequalification": {
+      "en": "Request pre-qualification",
+      "ar": "طلب التأهيل المسبق"
+    },
+    "servicesMenuLabel": {
+      "en": "Services",
+      "ar": "الخدمات"
+    },
+    "primaryNavAria": {
+      "en": "Primary navigation",
+      "ar": "التنقل الرئيسي"
+    },
+    "mobileNavAria": {
+      "en": "Mobile navigation",
+      "ar": "قائمة التنقل للجوال"
+    },
+    "footerExplore": {
+      "en": "Explore",
+      "ar": "استكشف"
+    },
+    "footerServices": {
+      "en": "Services",
+      "ar": "الخدمات"
+    },
+    "footerContact": {
+      "en": "Contact",
+      "ar": "تواصل"
+    },
+    "footerCompany": {
+      "en": "Company",
+      "ar": "الشركة"
+    },
+    "relatedProjects": {
+      "en": "Related projects",
+      "ar": "مشاريع ذات صلة"
+    },
+    "relatedServices": {
+      "en": "Related services",
+      "ar": "خدمات ذات صلة"
+    },
+    "projectFacts": {
+      "en": "Project details",
+      "ar": "تفاصيل المشروع"
+    },
+    "scopeOfWorks": {
+      "en": "Scope of works",
+      "ar": "نطاق الأعمال"
+    },
+    "client": {
+      "en": "Client",
+      "ar": "العميل"
+    },
+    "consultant": {
+      "en": "Consultant",
+      "ar": "الاستشاري"
+    },
+    "contractor": {
+      "en": "Main contractor",
+      "ar": "المقاول الرئيسي"
+    },
+    "status": {
+      "en": "Status",
+      "ar": "الحالة"
+    },
+    "location": {
+      "en": "Location",
+      "ar": "الموقع"
+    },
+    "telephone": {
+      "en": "Telephone",
+      "ar": "الهاتف"
+    },
+    "mobile": {
+      "en": "Mobile",
+      "ar": "الجوال"
+    },
+    "fax": {
+      "en": "Fax",
+      "ar": "الفاكس"
+    },
+    "emailLabel": {
+      "en": "Email",
+      "ar": "البريد الإلكتروني"
+    },
+    "poBox": {
+      "en": "PO Box",
+      "ar": "صندوق البريد"
+    },
+    "office": {
+      "en": "Office",
+      "ar": "المكتب"
+    },
+    "backToProjects": {
+      "en": "Back to all projects",
+      "ar": "العودة إلى جميع المشاريع"
+    },
+    "backToServices": {
+      "en": "Back to all services",
+      "ar": "العودة إلى جميع الخدمات"
+    },
+    "filterLabel": {
+      "en": "Filter by service",
+      "ar": "تصفية حسب الخدمة"
+    },
+    "filterAll": {
+      "en": "All projects",
+      "ar": "جميع المشاريع"
+    },
+    "resultsLabel": {
+      "en": "Results",
+      "ar": "النتائج"
+    },
+    "noResults": {
+      "en": "No projects match this filter.",
+      "ar": "لا توجد مشاريع مطابقة لهذه التصفية."
+    },
+    "form": {
+      "name": {
+        "en": "Full name",
+        "ar": "الاسم الكامل"
+      },
+      "company": {
+        "en": "Company",
+        "ar": "الشركة"
+      },
+      "email": {
+        "en": "Email",
+        "ar": "البريد الإلكتروني"
+      },
+      "phone": {
+        "en": "Phone",
+        "ar": "الهاتف"
+      },
+      "service": {
+        "en": "Service of interest",
+        "ar": "الخدمة المطلوبة"
+      },
+      "serviceOther": {
+        "en": "General enquiry",
+        "ar": "استفسار عام"
+      },
+      "message": {
+        "en": "Message",
+        "ar": "الرسالة"
+      },
+      "submit": {
+        "en": "Compose email",
+        "ar": "إنشاء بريد إلكتروني"
+      },
+      "required": {
+        "en": "Required",
+        "ar": "مطلوب"
+      },
+      "optional": {
+        "en": "Optional",
+        "ar": "اختياري"
+      },
+      "note": {
+        "en": "This form opens your email application with the details you enter. Nothing is stored or sent by this website.",
+        "ar": "يفتح هذا النموذج تطبيق البريد الإلكتروني لديك مع البيانات التي تُدخلها. لا يتم تخزين أي بيانات أو إرسالها من خلال هذا الموقع."
+      },
+      "privacyHint": {
+        "en": "No information is stored on this website.",
+        "ar": "لا يتم تخزين أي معلومات على هذا الموقع."
+      },
+      "subjectPrefix": {
+        "en": "Project enquiry",
+        "ar": "استفسار عن مشروع"
+      }
+    },
+    "copyright": {
+      "en": "Mouldex Precast Contracting L.L.C. All rights reserved.",
+      "ar": "MOULDEX PRECAST CONTRACTING L.L.C. جميع الحقوق محفوظة."
+    },
+    "notFoundTitle": {
+      "en": "Page not found",
+      "ar": "الصفحة غير موجودة"
+    },
+    "notFoundText": {
+      "en": "The page you are looking for has moved or no longer exists.",
+      "ar": "الصفحة التي تبحث عنها تم نقلها أو لم تعد موجودة."
+    },
+    "backHome": {
+      "en": "Back to home",
+      "ar": "العودة إلى الصفحة الرئيسية"
+    },
+    "closeMenuAria": {
+      "en": "Close menu",
+      "ar": "إغلاق القائمة"
+    },
+    "openMenuAria": {
+      "en": "Open menu",
+      "ar": "فتح القائمة"
+    },
+    "copyrightName": {
+      "en": "Mouldex Precast Contracting L.L.C",
+      "ar": "MOULDEX PRECAST CONTRACTING L.L.C"
+    },
+    "copyrightRights": {
+      "en": "All rights reserved.",
+      "ar": "جميع الحقوق محفوظة."
+    }
+  }
+}

@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import SectionHead from '../../../components/SectionHead.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { pages, projects, site, localized, projectsPage, statusLabels, getNav } from '../../../lib/content';
+import { pick } from '../../../lib/i18n';
+import type { Lang } from '../../../lib/types';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'ar' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const pageCopy = projectsPage(lang);
+const statuses = statusLabels(lang);
+const ui = site.ui;
+const nav = getNav(lang);
+const contactHref = nav.find((item) => item.key === 'contact')!.href;
+const homeCopy = localized(pages.home, lang);
+---
+<BaseLayout
+  lang={lang}
+  title={pageCopy.metaTitle}
+  description={pageCopy.metaDescription}
+  path="projects"
+>
+  <PageHero
+    lang={lang}
+    eyebrow={pageCopy.eyebrow}
+    title={pageCopy.title}
+    lead={pageCopy.lead}
+    breadcrumbs={[{ label: pick(site.nav.projects, lang) }]}
+  />
+
+  <section class="section" aria-labelledby="projects-showcase">
+    <div class="container">
+      <SectionHead
+        title={pageCopy.featuredTitle}
+        lead={pageCopy.featuredLead}
+        headingId="projects-showcase"
+        class="mb-3"
+      />
+      <div class="grid grid--3">
+        {projects.showcase.map((project) => (
+          <ProjectCard project={project} lang={lang} viewLabel={pick(ui.viewProject, lang)} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="projects-reference">
+    <div class="container">
+      <SectionHead
+        title={pageCopy.referenceTitle}
+        lead={pageCopy.referenceNote}
+        headingId="projects-reference"
+        class="mb-3"
+      />
+
+      <div class="filter-bar" role="group" aria-label={pick(ui.filterLabel, lang)}>
+        {pageCopy.categories.map((category: { id: string; label: string }, index: number) => (
+          <button
+            type="button"
+            class="filter-chip"
+            data-filter={category.id}
+            aria-pressed={index === 0 ? 'true' : 'false'}
+          >
+            {category.label}
+          </button>
+        ))}
+        <p class="filter-count" aria-live="polite">
+          {pick(ui.resultsLabel, lang)}: <span data-filter-count>{projects.reference.length}</span>
+        </p>
+      </div>
+
+      <div
+        class="ref-table-wrap"
+        tabindex="0"
+        role="region"
+        aria-label={pageCopy.referenceTitle}
+      >
+        <table class="ref-table" data-reference-table>
+          <caption class="ref-tablecaption">{pageCopy.referenceTitle}</caption>
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">{pick(ui.scopeOfWorks, lang)}</th>
+              <th scope="col">{pick(ui.client, lang)}</th>
+              <th scope="col">{pick(ui.consultant, lang)}</th>
+              <th scope="col">{pick(ui.contractor, lang)}</th>
+              <th scope="col">{pick(ui.status, lang)}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {projects.reference.map((project) => (
+              <tr data-category={project.category}>
+                <td class="ref-table__num">{String(project.no).padStart(2, '0')}</td>
+                <td class="ref-table__name">{pick(project.name, lang)}</td>
+                <td>{project.client}</td>
+                <td>{project.consultant}</td>
+                <td>{project.contractor}</td>
+                <td>
+                  <span class={`status-pill status-pill--${project.status}`}>
+                    {statuses[project.status]}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="filter-empty" data-filter-empty hidden>{pick(ui.noResults, lang)}</p>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow={homeCopy.cta.eyebrow}
+    title={homeCopy.cta.title}
+    text={homeCopy.cta.text}
+    primary={{ label: homeCopy.cta.primaryCta, href: contactHref }}
+    secondary={{ label: homeCopy.cta.secondaryCta, href: contactHref }}
+  />
+</BaseLayout>
+
+<script>
+  const table = document.querySelector<HTMLTableElement>('[data-reference-table]');
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+  const countEl = document.querySelector<HTMLElement>('[data-filter-count]');
+  const emptyEl = document.querySelector<HTMLElement>('[data-filter-empty]');
+
+  if (table && buttons.length > 0) {
+    const rows = Array.from(table.querySelectorAll<HTMLTableRowElement>('tbody tr'));
+
+    const apply = (filter: string) => {
+      let visible = 0;
+      rows.forEach((row) => {
+        const match = filter === 'all' || row.dataset.category === filter;
+        row.hidden = !match;
+        if (match) visible += 1;
+      });
+      buttons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
+      });
+      if (countEl) countEl.textContent = String(visible);
+      if (emptyEl) emptyEl.hidden = visible !== 0;
+      document.documentElement.dataset.projectFilter = filter;
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => apply(button.dataset.filter ?? 'all'));
+    });
+    apply('all');
+  }
+</script>
+
+

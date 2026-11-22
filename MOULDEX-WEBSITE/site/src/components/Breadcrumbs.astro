@@ -1,0 +1,34 @@
+---
+import { site } from '../lib/content';
+import { pick } from '../lib/i18n';
+import type { Lang } from '../lib/types';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  lang: Lang;
+  items: Crumb[];
+}
+const { lang, items } = Astro.props;
+const ui = site.ui;
+---
+<nav class="breadcrumbs" aria-label={pick(ui.breadcrumbAria, lang)}>
+  <a href={`/${lang}/`}>{pick(ui.breadcrumbHome, lang)}</a>
+  {
+    items.map((item) => (
+      <>
+        <span class="breadcrumbs__sep" aria-hidden="true">
+          /
+        </span>
+        {item.href ? (
+          <a href={item.href}>{item.label}</a>
+        ) : (
+          <span aria-current="page">{item.label}</span>
+        )}
+      </>
+    ))
+  }
+</nav>

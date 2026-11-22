@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Picture from '../../components/Picture.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ValueCard from '../../components/ValueCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { pages, site, valuesCopy, localized, getNav } from '../../lib/content';
+import { pick } from '../../lib/i18n';
+import type { Lang } from '../../lib/types';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'ar' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const copy = localized(pages.about, lang);
+const ui = site.ui;
+const nav = getNav(lang);
+const servicesHref = nav.find((item) => item.key === 'services')!.href;
+const projectsHref = nav.find((item) => item.key === 'projects')!.href;
+const contactHref = nav.find((item) => item.key === 'contact')!.href;
+const valuesBlock = valuesCopy(lang);
+const initials = 'SA';
+---
+<BaseLayout
+  lang={lang}
+  title={copy.metaTitle}
+  description={copy.metaDescription}
+  path="about"
+  fullTitle
+>
+  <PageHero
+    lang={lang}
+    eyebrow={copy.eyebrow}
+    title={copy.title}
+    lead={copy.lead}
+    breadcrumbs={[{ label: pick(site.nav.about, lang) }]}
+  />
+
+  <section class="section" aria-labelledby="about-overview">
+    <div class="container split split--wide-start">
+      <div class="stack">
+        <SectionHead
+          eyebrow={copy.overview.eyebrow}
+          title={copy.overview.title}
+          headingId="about-overview"
+        />
+        <div class="prose">
+          {copy.overview.body.map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+      <figure class="figure">
+        <div class="figure__frame">
+          <Picture
+            name="site-installation-03"
+            alt={copy.overview.imageAlt}
+            sizes="(min-width: 900px) 46vw, 100vw"
+          />
+        </div>
+        <figcaption class="figure__caption">{copy.overview.imageCaption}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="about-facts">
+    <div class="container split">
+      <SectionHead
+        eyebrow={copy.factsHeading.eyebrow}
+        title={copy.factsHeading.title}
+        headingId="about-facts"
+      />
+      <dl class="facts">
+        {copy.facts.map((fact: { label: string; value: string }) => (
+          <div class="fact-row">
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="about-mission">
+    <div class="container">
+      <div class="grid grid--2">
+        <article class="mission-card">
+          <p class="eyebrow">{copy.mission.eyebrow}</p>
+          <h2 class="h3" id="about-mission">{copy.mission.title}</h2>
+          <p>{copy.mission.text}</p>
+        </article>
+        <article class="mission-card">
+          <p class="eyebrow">{copy.vision.eyebrow}</p>
+          <h2 class="h3">{copy.vision.title}</h2>
+          <p>{copy.vision.text}</p>
+        </article>
+      </div>
+      <div class="split mt-4">
+        <SectionHead
+          eyebrow={copy.offerings.eyebrow}
+          title={copy.offerings.title}
+          headingId="about-offerings"
+        />
+        <p class="lead">{copy.offerings.text}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="about-values">
+    <div class="container">
+      <SectionHead
+        eyebrow={valuesBlock.eyebrow}
+        title={valuesBlock.title}
+        lead={valuesBlock.lead}
+        headingId="about-values"
+        class="mb-3"
+      />
+      <div class="grid grid--3">
+        {valuesBlock.items.map((value: any, index: number) => (
+          <ValueCard value={value} lang={lang} index={index} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy on-dark" aria-labelledby="about-business">
+    <div class="container split">
+      <SectionHead
+        eyebrow={copy.business.eyebrow}
+        title={copy.business.title}
+        lead={copy.business.lead}
+        headingId="about-business"
+      />
+      <ol class="number-list">
+        {copy.business.items.map((item: { title: string; text: string }) => (
+          <li>
+            <h3 class="h4">{item.title}</h3>
+            <p>{item.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="about-leadership">
+    <div class="container split">
+      <div class="leader">
+        <div class="leader__mark" aria-hidden="true">{initials}</div>
+        <div>
+          <p class="eyebrow">{copy.leadership.eyebrow}</p>
+          <h2 class="h2" id="about-leadership">{copy.leadership.name}</h2>
+          <p class="leader__role">{copy.leadership.role}</p>
+        </div>
+      </div>
+      <div class="stack">
+        <h3 class="h3">{copy.leadership.title}</h3>
+        <p class="lead">{copy.leadership.bio}</p>
+        <div class="btn-row">
+          <a class="link-arrow" href={servicesHref}>
+            {pick(ui.viewAllServices, lang)}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 12h15" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </a>
+          <a class="link-arrow" href={projectsHref}>
+            {pick(ui.viewAllProjects, lang)}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 12h15" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow={copy.cta.eyebrow}
+    title={copy.cta.title}
+    text={copy.cta.text}
+    primary={{ label: copy.cta.primaryCta, href: contactHref }}
+    secondary={{ label: copy.cta.secondaryCta, href: projectsHref }}
+  />
+</BaseLayout>
+
+<style>
+  .mission-card {
+    display: grid;
+    gap: 0.9rem;
+    padding: clamp(1.5rem, 2.6vw, 2.25rem);
+    border: 1px solid var(--line);
+    border-block-start: 4px solid var(--blue);
+    background: var(--paper);
+    height: 100%;
+  }
+
+  .mission-card p:last-child {
+    color: var(--ink-70);
+    line-height: 1.65;
+  }
+
+  .leader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .leader__mark {
+    display: grid;
+    place-items: center;
+    flex: none;
+    inline-size: 118px;
+    block-size: 118px;
+    background: var(--navy);
+    color: var(--yellow);
+    font-family: var(--font-latin);
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .leader__role {
+    font-family: var(--font-latin);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-block-start: 0.35rem;
+  }
+
+  [dir='rtl'] .leader__role {
+    font-family: var(--font-arabic);
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  :global(.section--navy .number-list li p) {
+    color: #b9c4d1;
+    line-height: 1.6;
+  }
+
+  :global(.section--navy .number-list li::before) {
+    color: var(--yellow);
+  }
+</style>
+
