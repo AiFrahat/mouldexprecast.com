@@ -102,7 +102,7 @@ test.describe('navigation and interactions', () => {
     await page.goto('/en/');
     const footer = page.locator('.site-footer');
     await expect(footer.locator('a[href^="tel:+97144364243"]')).toBeVisible();
-    await expect(footer.locator('a[href^="mailto:samy.mdxdxb@outlook.com"]')).toBeVisible();
+    await expect(footer.locator('a[href^="mailto:info@mouldexprecast.com"]')).toBeVisible();
   });
 
   test('language switch is present and labelled', async ({ page }) => {

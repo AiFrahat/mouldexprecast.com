@@ -7,7 +7,7 @@ test.describe('contact page and enquiry form', () => {
     await expect(cards).toHaveCount(6);
     await expect(page.locator('.contact-card a[href="tel:+97144364243"]')).toBeVisible();
     await expect(page.locator('.contact-card a[href="tel:+971554373368"]')).toBeVisible();
-    await expect(page.locator('.contact-card a[href="mailto:samy.mdxdxb@outlook.com"]')).toBeVisible();
+    await expect(page.locator('.contact-card a[href="mailto:info@mouldexprecast.com"]')).toBeVisible();
     const body = await page.locator('body').innerText();
     expect(body).toContain('+971 4 447 0317');
     expect(body).toContain('393390');
@@ -42,7 +42,7 @@ test.describe('contact page and enquiry form', () => {
     });
     const mailto = await form.getAttribute('data-last-mailto');
     expect(mailto).toBeTruthy();
-    expect(mailto).toContain('mailto:samy.mdxdxb@outlook.com');
+    expect(mailto).toContain('mailto:info@mouldexprecast.com');
     expect(mailto).toContain('Precast%20Claddings');
     expect(mailto).toContain('Test%20Engineer');
     expect(mailto).toContain('engineer%40example.com');

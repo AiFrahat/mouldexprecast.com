@@ -68,7 +68,7 @@ test.describe('publication rights and privacy', () => {
 
   test('contact details published are limited to the company profile lines', async ({ request }) => {
     const html = await (await request.get('/en/contact/')).text();
-    expect(html).toContain('samy.mdxdxb@outlook.com');
+    expect(html).toContain('info@mouldexprecast.com');
     expect(html).toContain('+971 4 436 4243');
     // no personal social handles and no invented street address or registration number
     expect(html).not.toMatch(/instagram|facebook|linkedin|twitter\/x\.com/i);

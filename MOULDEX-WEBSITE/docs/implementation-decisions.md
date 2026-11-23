@@ -26,7 +26,7 @@ the content model (`site/src/data/*.json`) and the nine page templates.
 ## Publication-rights items worth a client decision (the site is now published; confirm these)
 
 1. The reference list on profile pages 10–11 is branded **Precast Technology Solutions L.L.C - FZ**, while the profile is Mouldex's. The site presents it as the company profile's project reference list and states the provenance; the contracting-entity relationship is not explained in the source.
-2. The published contact email is a personal Outlook mailbox (`samy.mdxdxb@outlook.com`) and the profile also lists the General Manager's mobile. Both are reproduced from the profile's contact block (p. 25); confirm they are intended for public display.
+2. The published contact email is the client-specified `info@mouldexprecast.com` (the company profile's contact block, p. 25, lists a personal mailbox, which is not published). The General Manager's mobile from the profile is still published — confirm it is intended for public display.
 3. Project images on pages 12–14 are developer marketing renders carrying client branding (Emaar, Meraas/MEERAS, Dubai Hills Vista, Beachgate, Palmiera). Confirm permission to reuse them.
 4. Project statuses ("Completed / On-going / Awarded") come from an undated document; confirm they are still current.
 
