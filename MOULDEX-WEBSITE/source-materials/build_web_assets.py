@@ -6,7 +6,7 @@ Inputs (read-only):
 
 Outputs:
   site/public/brand/*        logo lockups + mark
-  site/public/favicon*       favicon set derived from the logo mark
+  site/public/favicon*       favicon set built from mouldex-logo-source.jpg on a white tile
   site/public/images/*       optimised photographs (page-referenced in docs/)
   site/public/og-image.jpg   1200x630 social card
 
@@ -122,42 +122,41 @@ for target_h in (256, 160, 96, 72):
     )
 
 # ---------------------------------------------------------------------- favicon
-# A favicon has to read at 16-32 px, where the mark's thin strokes disappear.
-# The tile therefore keeps the logo's own red precast panel + white window and
-# places it on the brand navy ground. Every pixel still comes from the mark.
-def red_panel_only(image: Image.Image) -> Image.Image:
-    a = np.array(image).astype(np.int16)
-    r, g, b, al = a[..., 0], a[..., 1], a[..., 2], a[..., 3]
-    is_red = (r > g + 40) & (r > b + 40)
-    is_window = (r > 200) & (g > 200) & (b > 200)
-    keep = is_red | ((al > 0) & is_window)
-    out = a.copy()
-    out[..., 3] = np.where(keep, al, 0)
-    return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8), "RGBA")
+# The client asked for the supplied logo artwork itself as the browser/tab and
+# taskbar icon, so the favicon set is the exact logo (source-materials/
+# mouldex-logo-source.jpg) centred on a white square tile. No page markup
+# changes: the existing /favicon.ico, /favicon-*.png, /apple-touch-icon.png and
+# web-manifest icon URLs are reused.
+FAVICON_SOURCE = os.path.join(SRC, "mouldex-logo-source.jpg")
 
 
-def square_tile(inner: Image.Image, size: int, bg: tuple[int, int, int] | None,
-                pad_ratio: float = 0.14) -> Image.Image:
+def _trim_light_border(image: Image.Image, threshold: int = 242) -> Image.Image:
+    a = np.array(image.convert("RGB"))
+    mask = a.min(axis=2) < threshold
+    ys, xs = np.where(mask)
+    return image.crop((int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1))
+
+
+def logo_tile(inner: Image.Image, size: int, pad_ratio: float) -> Image.Image:
     pad = int(round(size * pad_ratio))
     box = size - pad * 2
     ratio = min(box / inner.size[0], box / inner.size[1])
-    glyph = inner.resize(
+    glyph = inner.convert("RGBA").resize(
         (max(1, round(inner.size[0] * ratio)), max(1, round(inner.size[1] * ratio))),
         Image.LANCZOS,
     )
-    tile = Image.new("RGBA", (size, size), (bg + (255,)) if bg else (0, 0, 0, 0))
-    tile.alpha_composite(
-        glyph, ((size - glyph.size[0]) // 2, (size - glyph.size[1]) // 2)
-    )
+    tile = Image.new("RGBA", (size, size), (255, 255, 255, 255))
+    tile.alpha_composite(glyph, ((size - glyph.size[0]) // 2, (size - glyph.size[1]) // 2))
     return tile
 
 
-favicon_mark = red_panel_only(mark)
-favicon_mark.save(os.path.join(BRAND, "favicon-mark.png"), optimize=True)
+with Image.open(FAVICON_SOURCE) as favicon_art:
+    favicon_art = _trim_light_border(favicon_art.convert("RGB"))
+
 icon_sizes = [512, 192, 180, 48, 32, 16]
 icons = {}
 for size in icon_sizes:
-    tile = square_tile(favicon_mark, size, NAVY, 0.16 if size <= 48 else 0.13)
+    tile = logo_tile(favicon_art, size, 0.02 if size <= 48 else 0.055)
     icons[size] = tile
     name = "apple-touch-icon.png" if size == 180 else f"favicon-{size}.png"
     tile.save(os.path.join(PUBLIC, name), optimize=True)
