@@ -6,7 +6,7 @@ Inputs (read-only):
 
 Outputs:
   site/public/brand/*        logo lockups + mark
-  site/public/favicon*       favicon set built from mouldex-logo-source.jpg on a white tile
+  site/public/favicon*       favicon set built from mouldex-icon-source.png on a white tile
   site/public/images/*       optimised photographs (page-referenced in docs/)
   site/public/og-image.jpg   1200x630 social card
 
@@ -122,19 +122,26 @@ for target_h in (256, 160, 96, 72):
     )
 
 # ---------------------------------------------------------------------- favicon
-# The client asked for the supplied logo artwork itself as the browser/tab and
-# taskbar icon, so the favicon set is the exact logo (source-materials/
-# mouldex-logo-source.jpg) centred on a white square tile. No page markup
-# changes: the existing /favicon.ico, /favicon-*.png, /apple-touch-icon.png and
-# web-manifest icon URLs are reused.
-FAVICON_SOURCE = os.path.join(SRC, "mouldex-logo-source.jpg")
+# The client supplied this mark artwork (house/building symbol without the
+# wordmark) to be used as the browser/tab and taskbar icon. It reads far better
+# at 16-32 px than the full lockup, so the favicon set is this artwork, trimmed
+# of its white border and centred on a white square tile (the white window
+# panes must stay white, hence an opaque background rather than transparency).
+# No page markup changes: the existing /favicon.ico, /favicon-*.png,
+# /apple-touch-icon.png and web-manifest icon URLs are reused.
+FAVICON_SOURCE = os.path.join(SRC, "mouldex-icon-source.png")
 
 
-def _trim_light_border(image: Image.Image, threshold: int = 242) -> Image.Image:
+def _trim_light_border(image: Image.Image, threshold: int = 245) -> Image.Image:
     a = np.array(image.convert("RGB"))
     mask = a.min(axis=2) < threshold
     ys, xs = np.where(mask)
-    return image.crop((int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1))
+    margin = 2
+    left = max(0, int(xs.min()) - margin)
+    top = max(0, int(ys.min()) - margin)
+    right = min(image.size[0], int(xs.max()) + 1 + margin)
+    bottom = min(image.size[1], int(ys.max()) + 1 + margin)
+    return image.crop((left, top, right, bottom))
 
 
 def logo_tile(inner: Image.Image, size: int, pad_ratio: float) -> Image.Image:
@@ -156,7 +163,7 @@ with Image.open(FAVICON_SOURCE) as favicon_art:
 icon_sizes = [512, 192, 180, 48, 32, 16]
 icons = {}
 for size in icon_sizes:
-    tile = logo_tile(favicon_art, size, 0.02 if size <= 48 else 0.055)
+    tile = logo_tile(favicon_art, size, 0.03 if size <= 48 else 0.06)
     icons[size] = tile
     name = "apple-touch-icon.png" if size == 180 else f"favicon-{size}.png"
     tile.save(os.path.join(PUBLIC, name), optimize=True)

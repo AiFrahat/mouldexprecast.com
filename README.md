@@ -78,7 +78,7 @@ page-by-page mapping.
 - the scanned commercial licence with licence numbers and registered address (p. 20).
 
 No external or stock photography is used: only the photographs embedded in the PDF and the supplied
-logo PNG. The favicon set is the supplied logo artwork (`source-materials/mouldex-logo-source.jpg`) on a white tile; the reversed logo lockup and social card are derived from the logo PNG.
+logo PNG. The favicon set is the client-supplied mark artwork (`source-materials/mouldex-icon-source.png`) on a white tile, so it stays readable at 16 px; the reversed logo lockup and social card are derived from the logo PNG.
 
 **Points to confirm with the company before/after launch** (documented in
 `MOULDEX-WEBSITE/docs/implementation-decisions.md`): the contracting-entity naming in the source

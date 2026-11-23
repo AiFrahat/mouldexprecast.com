@@ -8,6 +8,8 @@
 Main.png
 Screenshot *.png
 logo-preview.jpg
+/Untitled.png
+/Modern Navy and Red Architectural Logo.png
 
 # Company-supplied source materials are NOT committed:
 # the pre-qualification PDF and the extracted text contain internal employee
@@ -15,6 +17,7 @@ logo-preview.jpg
 # Keep them available locally next to the project.
 MOULDEX-WEBSITE/source-materials/*.pdf
 MOULDEX-WEBSITE/source-materials/*.png
+!MOULDEX-WEBSITE/source-materials/mouldex-icon-source.png
 MOULDEX-WEBSITE/source-materials/extracted/text/
 
 # Astro project working artifacts
@@ -38,3 +41,5 @@ __pycache__/
 *.log
 .DS_Store
 Thumbs.db
+
+
