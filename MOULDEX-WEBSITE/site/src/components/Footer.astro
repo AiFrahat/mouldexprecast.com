@@ -86,8 +86,11 @@ const contactNav = nav.find((item) => item.key === 'contact')!;
 
     <div class="footer__bottom">
       <p class="footer__copyright">
-        <span class="ltr">© {year} {pick(ui.copyrightName, lang)}</span>
         <span>{pick(ui.copyrightRights, lang)}</span>
+        <span class="ltr">
+          © {year}
+          <a href="https://aifrahat.com/" target="_blank" rel="noopener noreferrer">AiFRAHAT.com</a>
+        </span>
       </p>
       <div class="footer__legal">
         <a href={contactNav.href}>{pick(ui.contactUs, lang)}</a>

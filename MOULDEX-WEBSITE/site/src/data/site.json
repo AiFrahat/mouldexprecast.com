@@ -294,10 +294,6 @@
         "ar": "استفسار عن مشروع"
       }
     },
-    "copyright": {
-      "en": "Mouldex Precast Contracting L.L.C. All rights reserved.",
-      "ar": "MOULDEX PRECAST CONTRACTING L.L.C. جميع الحقوق محفوظة."
-    },
     "notFoundTitle": {
       "en": "Page not found",
       "ar": "الصفحة غير موجودة"
@@ -318,13 +314,13 @@
       "en": "Open menu",
       "ar": "فتح القائمة"
     },
-    "copyrightName": {
-      "en": "Mouldex Precast Contracting L.L.C",
-      "ar": "MOULDEX PRECAST CONTRACTING L.L.C"
-    },
     "copyrightRights": {
       "en": "All rights reserved.",
       "ar": "جميع الحقوق محفوظة."
+    },
+    "copyrightOwner": {
+      "en": "AiFRAHAT.com",
+      "ar": "AiFRAHAT.com"
     }
   }
 }
